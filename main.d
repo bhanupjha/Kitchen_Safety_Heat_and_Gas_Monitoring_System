@@ -1,0 +1,9 @@
+.\main.o: main.c
+.\main.o: LCD.h
+.\main.o: types.h
+.\main.o: RTC.h
+.\main.o: types.h
+.\main.o: types.h
+.\main.o: defines.h
+.\main.o: LM35.h
+.\main.o: types.h

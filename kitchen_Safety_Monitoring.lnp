@@ -1,0 +1,14 @@
+--cpu ARM7TDMI
+".\startup.o"
+".\delay.o"
+".\lcd.o"
+".\rtc.o"
+".\lm35.o"
+".\led_buzzer.o"
+".\adc_lpc2129.o"
+".\kpm.o"
+".\main.o"
+--strict --scatter ".\kitchen_Safety_Monitoring.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\kitchen_Safety_Monitoring.map" -o .\kitchen_Safety_Monitoring.axf
