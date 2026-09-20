@@ -3,9 +3,13 @@
 #include "types.h"
 #include "defines.h"
 #include "LM35.h"
+#include "ADC.h"
+#include "pin_define.h"
+#include  <lpc21xx.h>
 
 s32 hour, min, sec, date, month, year, day;
 f32 tempc;
+u32 gas_logic;
 int main()
 {
 	// Initialize RTC
@@ -15,13 +19,13 @@ int main()
 	Init_LCD();
 	
 	// Intialize the ADC
-	Init_LCD();
+	Init_ADC();
 	
 	// set the initial time(hours, minute, seconds)
-	SET_RTC_Time_Info(12, 39, 0);
+	SET_RTC_Time_Info(11, 36, 0);
 	
 	// set the initial date (date, month, year)
-	SET_RTC_Date_Info(18, 9, 2026);
+	SET_RTC_Date_Info(9, 19, 2026);
 	
 	// set initial day (SUN to SAT)
 	SET_RTC_DAY(FRI);
@@ -40,15 +44,12 @@ int main()
 		//GET_RTC_DAY(&day);
 		//Display_RTC_Day(day);
 		
-		//WRITE_LCD_CMD(0X8A);
-		//strLCD("T: ");
 		tempc = LM35tc();
 	  display_temp(tempc);
-		/*WRITE_LCD_CMD(0X8A);
-		strLCD("T: ");
-		f32LCD(tempc, 2);
-		WRITE_LCD_DATA(0XDF);
-		WRITE_LCD_DATA('C');*/
+		gas_logic = ((IOPIN0>>MQ2_Gas)&1);
+		display_gas(gas_logic);
+		LED_Buzzer_check(tempc, gas_logic);
+			  
 	}
 	
 }

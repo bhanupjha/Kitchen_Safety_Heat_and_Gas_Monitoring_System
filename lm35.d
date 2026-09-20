@@ -5,3 +5,9 @@
 .\lm35.o: defines.h
 .\lm35.o: LCD.h
 .\lm35.o: types.h
+.\lm35.o: LM35.h
+.\lm35.o: types.h
+.\lm35.o: eint0.h
+.\lm35.o: types.h
+.\lm35.o: C:\Keil\ARM\Inc\Philips\lpc21xx.h
+.\lm35.o: pin_define.h

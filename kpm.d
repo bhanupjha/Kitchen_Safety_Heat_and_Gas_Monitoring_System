@@ -4,5 +4,3 @@
 .\kpm.o: pin_define.h
 .\kpm.o: LCD.h
 .\kpm.o: types.h
-.\kpm.o: delay.h
-.\kpm.o: types.h

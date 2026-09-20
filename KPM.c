@@ -2,12 +2,11 @@
 #include "types.h"
 #include "pin_define.h"
 #include "LCD.h"
-#include "delay.h"
 
 u8 kpmLUT[4][4]={{'1','2','3','A'},
-									{'4','5','6','B'},
-									{'1','2','3','C'},
-									{'*','0','#','D'}};
+								{'4','5','6','B'},
+								{'7','8','9','C'},
+								{'*','0','#','D'}};
 
 
 void InitKPM(void)
@@ -80,7 +79,29 @@ u32 ReadNum(void)
 		{
 			sum=(sum*10)+(key-48);
 			
-			//WRITE_LCD_DATA('*');
+			WRITE_LCD_DATA('*');
+		}
+		else if(key == '#')
+		{
+			break;
+		}
+	}
+	return sum;
+}
+
+u32 ReadNum1(void)
+{
+	u8 key;
+	u32 sum=0;
+	WRITE_LCD_CMD(0xC0);
+	while(1)
+	{
+		key=keyscan();
+		if(key>='0' && key<='9')
+		{
+			sum=(sum*10)+(key-48);
+			
+			WRITE_LCD_DATA(key);
 		}
 		else if(key == '#')
 		{

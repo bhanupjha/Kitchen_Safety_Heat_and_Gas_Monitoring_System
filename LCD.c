@@ -2,7 +2,7 @@
 
 #include<lpc21xx.h>
 #include "types.h"
-#include "delay.h"
+#include "timer0.h"
 #include "defines.h"
 #include "Pin_define.h"
 
@@ -21,12 +21,14 @@ void WRITE_LCD_CMD(u8 cmd)
 	SSETBIT(IOSET0, LCD_EN);   // EN=1
 
 	// delay 1s
-	delay_us(1);
+	//delay_us(1);
+	tdelay_us(1);
 
 	SCLRBIT(IOCLR0, LCD_EN);  //EN=0
 
 	// delay for internal process
-	delay_ms(2);
+	//delay_ms(2);
+	tdelay_ms(2);
 }
 
 void Init_LCD(void)
@@ -39,12 +41,14 @@ void Init_LCD(void)
 	SETBIT(IODIR0, LCD_RW);
 	SETBIT(IODIR0, LCD_EN);
 
-	delay_ms(5);
+	//delay_ms(5);
+	tdelay_ms(5);
 
 	WRITE_LCD_CMD(MODE_8BIT_1LINE);
-	delay_ms(5);
+	//delay_ms(5);
 	WRITE_LCD_CMD(MODE_8BIT_1LINE);
-	delay_ms(100);
+	//delay_ms(100);
+	tdelay_ms(100);
 	WRITE_LCD_CMD(MODE_8BIT_1LINE);
 
 	WRITE_LCD_CMD(MODE_8BIT_2LINE);
@@ -68,12 +72,14 @@ void WRITE_LCD_DATA(u8 ascii)
 	//apply H-L pulse on EN
 	SSETBIT(IOSET0, LCD_EN); // EN=1
 
-	delay_us(1);
+	//delay_us(1);
+	tdelay_us(1);
 
 	SCLRBIT(IOCLR0, LCD_EN); // EN=0
 
 	// delay for internal process
-	delay_ms(2);
+	//delay_ms(2);
+	tdelay_ms(2);
 }
 
 void strLCD(s8 *str)

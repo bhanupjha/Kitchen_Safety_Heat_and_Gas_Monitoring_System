@@ -87,10 +87,9 @@
 #define DONE_BIT 31
 
 //AIN -> GPIO  -> please check for lpc2148 then use
-#define AIN0 0x00400000
-#define AIN1 0x01000000
-#define AIN2 0x04000000
-#define AIN3 0x10000000
+#define AIN1 0x01400000
+#define AIN2 0x04400000
+#define AIN3 0x10400000
 
 
 //-------------------------------------------threshold_value-------------------------------------------------
