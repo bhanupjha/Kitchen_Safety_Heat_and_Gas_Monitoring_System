@@ -1,7 +1,7 @@
 //--------------LCD_pin_define-----------------------------------------
 #define LCD_DATA 8	 // p0.8 to po.15
-#define LCD_RS 16    // p0.16
-#define LCD_RW 17    // p0.17
+#define LCD_RS 17    // p0.16
+#define LCD_RW 16    // p0.17
 #define LCD_EN 18    // p0.18
 
 //--------------MQ2_Gas_sensor-----------------------------------------

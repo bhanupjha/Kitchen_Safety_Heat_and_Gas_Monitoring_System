@@ -1,17 +1,4 @@
---cpu ARM7TDMI
-".\startup.o"
-".\timer0_delay.o"
-".\lcd.o"
-".\rtc.o"
-".\lm35.o"
-".\led_buzzer.o"
-".\adc_lpc2148.o"
-".\kpm.o"
-".\event_log.o"
-".\main1.o"
-".\security.o"
-".\eint0.o"
---strict --scatter ".\kitchen_Safety_Monitoring.sct"
---summary_stderr --info summarysizes --map --xref --callgraph --symbols
---info sizes --info totals --info unused --info veneers
---list ".\kitchen_Safety_Monitoring.map" -o .\kitchen_Safety_Monitoring.axf
+--cpu ARM7TDMI "startup.o" "timer0_delay.o" "lcd.o" "rtc.o" "lm35.o" "led_buzzer.o" "adc_lpc2148.o" "kpm.o" "event_log.o" "main1.o" "security.o" "eint0.o" --strict --scatter "kitchen_Safety_Monitoring.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\kitchen_Safety_Monitoring.map" -o "kitchen_Safety_Monitoring.axf"

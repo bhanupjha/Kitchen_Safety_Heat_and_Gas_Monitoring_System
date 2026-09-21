@@ -667,25 +667,32 @@
                 </FileArmAds>
               </FileOption>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>testing</GroupName>
-          <Files>
             <File>
-              <FileName>Event_Log.c</FileName>
+              <FileName>Event_log.c</FileName>
               <FileType>1</FileType>
-              <FilePath>C:\Users\mailt\Downloads\files (1)\Event_Log.c</FilePath>
+              <FilePath>.\Event_log.c</FilePath>
             </File>
             <File>
-              <FileName>main.c</FileName>
+              <FileName>main1.c</FileName>
               <FileType>1</FileType>
-              <FilePath>C:\Users\mailt\Downloads\files (1)\main.c</FilePath>
+              <FilePath>.\main1.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
           <GroupName>interrupt</GroupName>
+          <Files>
+            <File>
+              <FileName>security.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\security.c</FilePath>
+            </File>
+            <File>
+              <FileName>eint0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\eint0.c</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>

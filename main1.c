@@ -40,7 +40,7 @@ int main()
 	SET_RTC_Time_Info(11, 36, 0);
 	
 	// set the initial date (date, month, year)
-	SET_RTC_Date_Info(19, 9, 2026);		// was (9, 19, 2026) -> month 19 is invalid
+	SET_RTC_Date_Info(19, 9, 2026);		
 	
 	// set initial day (SUN to SAT)
 	SET_RTC_DAY(FRI);

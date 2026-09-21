@@ -1,0 +1,30 @@
+*** Creating Trace Output File 'kitchen_Safety_Monitoring.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"startup.o"'
+### List of Objects: adding '"timer0_delay.o"'
+### List of Objects: adding '"lcd.o"'
+### List of Objects: adding '"rtc.o"'
+### List of Objects: adding '"lm35.o"'
+### List of Objects: adding '"led_buzzer.o"'
+### List of Objects: adding '"adc_lpc2148.o"'
+### List of Objects: adding '"kpm.o"'
+### List of Objects: adding '"event_log.o"'
+### List of Objects: adding '"main1.o"'
+### List of Objects: adding '"security.o"'
+### List of Objects: adding '"eint0.o"'
+### ADS-LD Command completed:
+--cpu ARM7TDMI "startup.o" "timer0_delay.o" "lcd.o" "rtc.o" "lm35.o" "led_buzzer.o" "adc_lpc2148.o" "kpm.o" "event_log.o" "main1.o" "security.o" "eint0.o" --strict --scatter "kitchen_Safety_Monitoring.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\kitchen_Safety_Monitoring.map" -o "kitchen_Safety_Monitoring.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'kitchen_Safety_Monitoring.axf'
+### ADS-LD Command File: 'kitchen_Safety_Monitoring.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'kitchen_Safety_Monitoring.lnp', Handle=0x000002D8
+### Writing '.lnp' file
+### ADS-LD Command file 'kitchen_Safety_Monitoring.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.
