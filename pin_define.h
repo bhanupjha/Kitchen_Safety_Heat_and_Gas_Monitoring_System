@@ -5,7 +5,7 @@
 #define LCD_EN 18    // p0.18
 
 //--------------MQ2_Gas_sensor-----------------------------------------
-#define MQ2_Gas 0  // p0.0
+#define MQ2_Gas 3  // p0.0
 
 //--------------KPM_define---------------------------------------------
 //kpm pin defines
@@ -20,8 +20,11 @@
 #define COL3 23 //p1.23
 
 //----------------------Interrupt_pin_define--------------------------------
-#define EINT0_SW1 3
-#define EINT0_CHNO 15
+#define EINT0_SW1 1
+#define EINT0_CHNO 14
 
 //------------------------SW2--------------------------------------------
-#define SW2 7
+#define SW2 26
+
+//--------------------------Buzzer pin----------------------------------
+#define Buzzer_pin 6

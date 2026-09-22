@@ -4,9 +4,9 @@
 #include "LCD.h"
 
 u8 kpmLUT[4][4]={{'1','2','3','A'},
-								{'4','5','6','B'},
-								{'7','8','9','C'},
-								{'*','0','#','D'}};
+				{'4','5','6','B'},
+				{'7','8','9','C'},
+			    {'*','0','#','D'}};
 
 
 void InitKPM(void)
@@ -99,6 +99,7 @@ u32 ReadNum1(void)
 		key=keyscan();
 		if(key>='0' && key<='9')
 		{
+		
 			sum=(sum*10)+(key-48);
 			
 			WRITE_LCD_DATA(key);
@@ -110,5 +111,6 @@ u32 ReadNum1(void)
 	}
 	return sum;
 }
+
 
 

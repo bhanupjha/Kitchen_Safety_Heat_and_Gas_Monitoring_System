@@ -4,6 +4,7 @@
 #include "LCD.h"
 
 char week[][4] = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
+
 void RTC_Init(void)
 {
 	// Disable and reset the RTC
@@ -21,10 +22,10 @@ void RTC_Init(void)
 	#else
 	
 	// Enable the RTC with external clock source
-	CCR = RTC_Enable | RTC_CLKSRC;  // LPC_2148
+	CCR = RTC_ENABLE | RTC_CLKSRC;  // LPC_2148
 	
 	#endif
-}
+} 
 
 void SET_RTC_Time_Info(u32 hour, u32 minute, u32 second)
 {

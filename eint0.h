@@ -1,6 +1,6 @@
 #include "types.h"
-void eint1_isr(void)__irq;
-void eint1_enable(void);
+void eint0_isr(void)__irq;
+void eint0_enable(void);
 void Edit_Menu(void);
 void edit_rtc(void);
 void edit_threshold(void);

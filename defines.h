@@ -53,7 +53,7 @@
 
 #define RTC_CLKSRC (1<<4)
 
-#define CPU_LPC2129
+#define CPU_LPC2148
 
 #define SUN 0
 #define MON 1
@@ -93,6 +93,6 @@
 
 
 //-------------------------------------------threshold_value-------------------------------------------------
-#define THRSHOLD_VAL 40
+#define THRSHOLD_VAL 20
 
 #endif

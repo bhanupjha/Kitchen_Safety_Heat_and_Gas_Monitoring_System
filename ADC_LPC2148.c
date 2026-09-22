@@ -16,7 +16,7 @@ void Init_ADC(void)
 void Read_ADC(u32 chno,u32 *dval,f32 *eAR)
 {
 	// clear previous channel value
-	//ADCR &=~(255<<0);
+    ADCR &=~(255<<0);
 	//select channel & start conversion
 	ADCR |=1<<chno |1<<START_CONV;
 	// wait for 3 usec
@@ -28,4 +28,5 @@ void Read_ADC(u32 chno,u32 *dval,f32 *eAR)
 	*dval=((ADDR>>RESULT)&1023);
 	//find Ear value
 	*eAR=(3.3/1023)*(*dval);
+
 }

@@ -13,7 +13,7 @@
 
 volatile u32 edit_mode=0;
 u32 temp_threshold = THRSHOLD_VAL;
-void eint1_isr(void)__irq
+void eint0_isr(void)__irq
 {
 	if(((IOPIN0>>EINT0_SW1)&1)==0)
 	{
@@ -26,16 +26,19 @@ void eint1_isr(void)__irq
 	
 }
 
-void eint1_enable(void)
+void eint0_enable(void)
 {
+	PINSEL0 &= ~(3<<2);
 	//cfg p0.1 as EINT0
-	PINSEL0 |=3<<(3*2);
+	PINSEL0 |= (3<<2);
+	EXTPOLAR &= ~(1<<0);
+	EXTINT = 1<<0;
 	//select extint0 as irq
-	VICIntSelect = 0<<EINT0_CHNO;
+	VICIntSelect &= ~(0<<EINT0_CHNO);
 	//enable extint0 source
-	VICIntEnable = 1<<EINT0_CHNO;
+	VICIntEnable |= 1<<EINT0_CHNO;
 	//load isr address
-	VICVectAddr0 =(u32)eint1_isr;
+	VICVectAddr0 =(u32)eint0_isr;
 	//select slot for extint0
 	VICVectCntl0 = 1<<5|EINT0_CHNO;
 	//select edge triggering

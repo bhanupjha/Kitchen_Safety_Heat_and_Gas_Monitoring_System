@@ -7,7 +7,7 @@
 #include "pin_define.h"
 #include "Event_Log.h"
 #include "eint0.h"
-#include  <lpc21xx.h>
+#include <lpc21xx.h>
 #include "security.h"
 #include "kpm.h"
 #include "timer0.h"
@@ -18,23 +18,23 @@ u32 gas_logic;
 
 int main()
 {
+	// Initialize the LCD
+	Init_LCD();
+
+	// Initialize RTC
+	RTC_Init();
+
+	// Intialize the ADC
+	Init_ADC();
+
 	// Initialize interrupt
-	eint1_enable();
+    eint0_enable();
 	
 	// Initialize timer
 	Init_timer0();
 	
 	// intialize kpm
-	InitKPM();
-	
-	// Initialize RTC
-	RTC_Init();
-	
-	// Initialize the LCD
-	Init_LCD();
-	
-	// Intialize the ADC
-	Init_ADC();
+    InitKPM();
 	
 	// set the initial time(hours, minute, seconds)
 	SET_RTC_Time_Info(11, 36, 0);
@@ -56,10 +56,10 @@ int main()
 		gas_logic = ((IOPIN0>>MQ2_Gas)&1);
 		
 		// save event if a sensor just crossed its set point
-		EventLog_Update(tempc, temp_threshold, gas_logic);
+	    EventLog_Update(tempc, temp_threshold, gas_logic);
 		
 		// buzzer and LED alert
-		LED_Buzzer_check(tempc, gas_logic);
+	    LED_Buzzer_check(tempc, gas_logic);
 		
 		// every 10 s the event screen comes for 3 s, otherwise show the normal screen
 		if(EventLog_DisplayTask() == 0)
@@ -76,8 +76,9 @@ int main()
 			//GET_RTC_DAY(&day);
 			//Display_RTC_Day(day);
 			
-			display_temp(tempc);
+		display_temp(tempc);
 			display_gas(gas_logic);
+			tdelay_ms(1000);
 		}
 		if(edit_mode == 1)
 		{
@@ -91,7 +92,7 @@ int main()
 			  {
 				  Access_Denied();
 			  }
-		}
+		}	
 		
 	}
 }

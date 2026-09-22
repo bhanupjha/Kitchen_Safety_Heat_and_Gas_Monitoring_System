@@ -44,13 +44,13 @@ void display_gas(u32 gas_logic)
 
 void LED_Buzzer_check(f32 tempc, u32 gas_logic)
 {
-	IODIR0 &= ~(1 << SW2);                            // SW2 as input
+	IODIR1 &= ~(1 << SW2);                            // SW2 as input
 
 	if(tempc > temp_threshold || gas_logic == 0)      // unsafe
 	{
 		LED_ON();                                     // LED (fan) stays ON
 
-		if((IOPIN0 &(1<<SW2))==0)
+		if((IOPIN1 &(1<<SW2))==0)
 		{
 			buzzer_muted = 1;
 			//BUZZER OFF
