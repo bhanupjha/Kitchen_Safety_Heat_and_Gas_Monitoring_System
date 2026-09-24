@@ -42,7 +42,7 @@ void LED_Buzzer_check(f32 tempc, u32 gas_logic)
 {
 	IODIR1 &= ~(1 << SW2);                            // SW2 as input
 
-	if(tempc > config.temp_threshold || gas_logic == 0)      // unsafe
+	if(tempc > temp_val || gas_logic == 0)      // unsafe
 	{
 		LED_ON();                                     // LED (fan) stays ON
 

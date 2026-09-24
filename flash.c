@@ -19,9 +19,9 @@ IAP iap_entry = (IAP)IAP_LOCATION;
 
 SYSTEM_CONFIG config;
 
-extern f32 temp_threshold;
+//extern f32 temp_threshold;
 //extern u32 gas_threshold;
-extern u32 System_Password;
+//extern u32 System_Password;
 
 //--------------------------------------------------//
 /* Load Configuration from Flash                    */
@@ -44,15 +44,15 @@ void Flash_LoadConfig(void)
 
         config.temp_threshold = 30;
       //  config.gas_threshold = 1;
-        config.password = 1234;
+        config.password = 111;
         config.valid = CONFIG_VALID;
-		Flash_SaveConfig();
+	//	Flash_SaveConfig();
     }
 
     SET_RTC_Time_Info(config.hour,config.minute,config.second);
     SET_RTC_Date_Info(config.date,config.month,config.year);
 
-   // temp_threshold = config.temp_threshold;
+   temp_val = config.temp_threshold;
    // gas_threshold  = config.gas_threshold;
     System_Password = config.password;
 }
@@ -66,7 +66,7 @@ void Flash_SaveConfig(void)
     unsigned int res[5];
 
 
-   // config.temp_threshold = temp_threshold;
+   config.temp_threshold = temp_val;
    // config.gas_threshold  = gas_threshold;
     config.password       = System_Password;
 

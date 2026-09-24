@@ -62,7 +62,7 @@ int main()
 		gas_logic = ((IOPIN0>>MQ2_Gas)&1);
 		
 		// save event if a sensor just crossed its set point
-	    EventLog_Update(tempc, config.temp_threshold, gas_logic);
+	    EventLog_Update(tempc, temp_val, gas_logic);
 		
 		// buzzer and LED alert
 	    LED_Buzzer_check(tempc, gas_logic);

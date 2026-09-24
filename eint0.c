@@ -13,9 +13,8 @@
 #include "flash.h"
 
 volatile u32 edit_mode=0;
-//f32 threshold_val = temp_threshold;
-//extern f32 temp_val;
-//temp_val = config.temp_threshold;
+f32 temp_val;
+
 void eint0_isr(void)__irq
 {
 	if(((IOPIN0>>EINT0_SW1)&1)==0)
@@ -181,7 +180,7 @@ void edit_threshold(void)
 		 temp_in= ReadNum1();
 	u32LCD(temp_in);
 	if(temp_in <=100)
-	  config.temp_threshold = temp_in;
+	  temp_val = temp_in;
 	  Flash_SaveConfig();   // save in ROM
 	
 	 WRITE_LCD_CMD(0x01);

@@ -15,10 +15,8 @@ typedef struct
     f32 temp_threshold;
     //u32 gas_threshold;
 	u32 password;
-
-   
-
     u32 valid;
+
 }SYSTEM_CONFIG;
 
 extern SYSTEM_CONFIG config;

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [E:\v25he11b13\project\Kitchen_Safety_Heat_and_Gas_Monitoring_System\Safety_Monitoring.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image E:\v25he11b13\project\Kitchen_Safety_Heat_and_Gas_Monitoring_System\Safety_Monitoring.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 4.1 [Build 481]: Last Updated: Thu Sep 24 12:50:10 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 4.1 [Build 481]: Last Updated: Thu Sep 24 20:15:58 2026
 <BR><P>
 <H3>Maximum Stack Usage =         80 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -13,7 +13,7 @@ main &rArr; EventLog_DisplayTask &rArr; show_event_screen &rArr; f32LCD &rArr; u
 Functions with no stack information
 </H3><UL>
  <LI><a href="#[3]">Reset_Handler</a>
- <LI><a href="#[60]">__user_initial_stackheap</a>
+ <LI><a href="#[5f]">__user_initial_stackheap</a>
  <LI><a href="#[4]">Undef_Handler</a>
  <LI><a href="#[5]">SWI_Handler</a>
  <LI><a href="#[6]">PAbt_Handler</a>
@@ -46,8 +46,6 @@ Function Pointers
  <LI><a href="#[c]">__main</a> from __main.o(!!!main) referenced from startup.o(RESET)
  <LI><a href="#[b]">main</a> from main1.o(.text) referenced from rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
  <LI><a href="#[57]">eint0_isr</a> from eint0.o(.text) referenced from eint0.o(.text)
- <LI><a href="#[23]">__aeabi_uidivmod</a> from aeabi_sdiv.o(.text_udiv) referenced from eint0.o(.text)
- <LI><a href="#[5b]">__arm_div5</a> from aeabi_sdiv.o(.text) referenced from eint0.o(.text)
 </UL>
 <P>
 <H3>
@@ -171,7 +169,7 @@ Global Symbols
 
 <P><STRONG><a name="[99]"></a>__rt_entry_postli_1</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
 
-<P><STRONG><a name="[62]"></a>__rt_exit</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
+<P><STRONG><a name="[61]"></a>__rt_exit</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit (via Veneer)
 </UL>
 
@@ -185,7 +183,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit (via Veneer)
 </UL>
 
-<P><STRONG><a name="[60]"></a>__user_initial_stackheap</STRONG> (ARM, 0 bytes, Stack size unknown bytes, startup.o(.text))
+<P><STRONG><a name="[5f]"></a>__user_initial_stackheap</STRONG> (ARM, 0 bytes, Stack size unknown bytes, startup.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
@@ -333,7 +331,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5a]"></a>SET_RTC_Time_Info</STRONG> (ARM, 20 bytes, Stack size 0 bytes, rtc.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Flash_LoadConfig
+<BR><BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Flash_LoadConfig
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;edit_rtc
 </UL>
 
@@ -355,8 +353,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[5c]"></a>SET_RTC_Date_Info</STRONG> (ARM, 20 bytes, Stack size 0 bytes, rtc.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Flash_LoadConfig
+<P><STRONG><a name="[5b]"></a>SET_RTC_Date_Info</STRONG> (ARM, 20 bytes, Stack size 0 bytes, rtc.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Flash_LoadConfig
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;edit_rtc
 </UL>
 
@@ -613,10 +611,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[56]"></a>change_password</STRONG> (ARM, 468 bytes, Stack size 16 bytes, security.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = change_password &rArr; ReadNum1 &rArr; keyscan &rArr; Rowcheck
+<P><STRONG><a name="[56]"></a>change_password</STRONG> (ARM, 472 bytes, Stack size 16 bytes, security.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = change_password &rArr; Flash_SaveConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadNum1
+<BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Flash_SaveConfig
+<LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadNum1
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadNum
 <LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strLCD
 <LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WRITE_LCD_CMD
@@ -649,13 +648,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Edit_Menu
 </UL>
 
-<P><STRONG><a name="[59]"></a>edit_rtc</STRONG> (ARM, 756 bytes, Stack size 32 bytes, eint0.o(.text))
+<P><STRONG><a name="[59]"></a>edit_rtc</STRONG> (ARM, 760 bytes, Stack size 32 bytes, eint0.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64 + Unknown Stack Size
 <LI>Call Chain = edit_rtc &rArr; ReadNum1 &rArr; keyscan &rArr; Rowcheck
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadNum1
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GET_RTC_Date_Info
-<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SET_RTC_Date_Info
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SET_RTC_Date_Info
 <LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GET_RTC_Time_Info
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SET_RTC_Time_Info
 <LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;u32LCD
@@ -682,25 +681,24 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[50]"></a>Flash_SaveConfig</STRONG> (ARM, 248 bytes, Stack size 48 bytes, flash.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = Flash_SaveConfig
-</UL>
-<BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Flash_LoadConfig
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;edit_threshold
-<LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<P><STRONG><a name="[5c]"></a>Flash_LoadConfig</STRONG> (ARM, 196 bytes, Stack size 8 bytes, flash.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SET_RTC_Date_Info
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SET_RTC_Time_Info
 </UL>
 
-<P><STRONG><a name="[5d]"></a>Flash_LoadConfig</STRONG> (ARM, 184 bytes, Stack size 8 bytes, flash.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Flash_SaveConfig
-<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SET_RTC_Date_Info
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SET_RTC_Time_Info
+<P><STRONG><a name="[50]"></a>Flash_SaveConfig</STRONG> (ARM, 260 bytes, Stack size 48 bytes, flash.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = Flash_SaveConfig
+</UL>
+<BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;edit_threshold
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;change_password
+<LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[9d]"></a>Flash_ClearConfig</STRONG> (ARM, 116 bytes, Stack size 48 bytes, flash.o(.text), UNUSED)
 
-<P><STRONG><a name="[5e]"></a>__aeabi_memcpy4</STRONG> (ARM, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Flash_LoadConfig
+<P><STRONG><a name="[5d]"></a>__aeabi_memcpy4</STRONG> (ARM, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Flash_LoadConfig
 </UL>
 
 <P><STRONG><a name="[9e]"></a>__aeabi_memcpy8</STRONG> (ARM, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
@@ -723,22 +721,22 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
 <LI>Call Chain = __user_setup_stackheap
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_initial_stackheap
+<BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_initial_stackheap
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_sh
 </UL>
 
 <P><STRONG><a name="[17]"></a>exit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, exit.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit (via Veneer)
-<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_call_atexit_fns (Weak Reference)
+<BR><BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit (via Veneer)
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_call_atexit_fns (Weak Reference)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
 <P><STRONG><a name="[a6]"></a>__user_libspace</STRONG> (ARM, 12 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
-<P><STRONG><a name="[5f]"></a>__user_perproc_libspace</STRONG> (ARM, 0 bytes, Stack size 0 bytes, libspace.o(.text))
+<P><STRONG><a name="[5e]"></a>__user_perproc_libspace</STRONG> (ARM, 0 bytes, Stack size 0 bytes, libspace.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
@@ -760,8 +758,8 @@ Global Symbols
 
 <P><STRONG><a name="[23]"></a>__aeabi_uidivmod</STRONG> (ARM, 36 bytes, Stack size 0 bytes, aeabi_sdiv.o(.text_udiv))
 <BR><BR>[Calls]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__arm_div_large
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__arm_div2
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__arm_div5
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__arm_div2
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__arm_div5
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__arm_div8
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EventLog_DisplayTask
@@ -770,8 +768,7 @@ Global Symbols
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_RTC_Time
 <LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;u32LCD
 </UL>
-<BR>[Address Reference Count : 1]<UL><LI> eint0.o(.text)
-</UL>
+
 <P><STRONG><a name="[3a]"></a>__aeabi_d2f</STRONG> (ARM, 0 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2f
 </UL>
@@ -1033,12 +1030,11 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 
-<P><STRONG><a name="[5b]"></a>__arm_div5</STRONG> (ARM, 0 bytes, Stack size unknown bytes, aeabi_sdiv.o(.text))
+<P><STRONG><a name="[63]"></a>__arm_div5</STRONG> (ARM, 0 bytes, Stack size unknown bytes, aeabi_sdiv.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Address Reference Count : 1]<UL><LI> eint0.o(.text)
-</UL>
-<P><STRONG><a name="[63]"></a>__arm_div2</STRONG> (ARM, 0 bytes, Stack size unknown bytes, aeabi_sdiv.o(.text))
+
+<P><STRONG><a name="[62]"></a>__arm_div2</STRONG> (ARM, 0 bytes, Stack size unknown bytes, aeabi_sdiv.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 
@@ -1059,7 +1055,7 @@ Local Symbols
 <H3>
 Undefined Global Symbols
 </H3>
-<P><STRONG><a name="[61]"></a>_call_atexit_fns</STRONG> (ARM, 0 bytes, Stack size 0 bytes, UNDEFINED)
+<P><STRONG><a name="[60]"></a>_call_atexit_fns</STRONG> (ARM, 0 bytes, Stack size 0 bytes, UNDEFINED)
 <BR><BR>[Called By]<UL><LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 </UL>
 <HR></body></html>
