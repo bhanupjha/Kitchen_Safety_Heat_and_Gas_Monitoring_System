@@ -10,9 +10,12 @@
 #include "eint0.h"
 #include "defines.h"
 #include "types.h"
+#include "flash.h"
 
 volatile u32 edit_mode=0;
-u32 temp_threshold = THRSHOLD_VAL;
+//f32 threshold_val = temp_threshold;
+//extern f32 temp_val;
+//temp_val = config.temp_threshold;
 void eint0_isr(void)__irq
 {
 	if(((IOPIN0>>EINT0_SW1)&1)==0)
@@ -79,16 +82,19 @@ void edit_rtc(void)
 		s32 temp_hr,temp_min,temp_sec;
 		s32 temp_day,temp_mon,temp_yr;
 		u32 input;
-	  GET_RTC_Time_Info(&temp_hr, &temp_min, &temp_sec);
-	  GET_RTC_Date_Info(&temp_day, &temp_mon, &temp_yr);
+	    GET_RTC_Time_Info(&temp_hr, &temp_min, &temp_sec);
+	    GET_RTC_Date_Info(&temp_day, &temp_mon, &temp_yr);
 		WRITE_LCD_CMD(0x01);
 		strLCD("Set TIME ");
 		WRITE_LCD_CMD(0x01);
 		strLCD("Enter Hour(24H):");
 		input = ReadNum1();
-	  u32LCD(input);
-		if(input < 24)
-			temp_hr = input;
+		u32LCD(input);
+		if(input != 0xFFFFFFFF)
+		{
+			if(input < 24)
+				temp_hr = input;
+		}
 		// Get minutes
 		WRITE_LCD_CMD(0x01);
 	//	strLCD("Set TIME ");
@@ -96,8 +102,11 @@ void edit_rtc(void)
 		strLCD("Enter Min(60M):");
 		input = ReadNum1();
 		u32LCD(input);
-		if(input < 60)
-			temp_min = input;
+		if(input != 0xFFFFFFFF)
+		{
+			if(input < 24)
+				temp_hr = input;
+		}
 		//GET second
 		
 		WRITE_LCD_CMD(0x01);
@@ -106,8 +115,11 @@ void edit_rtc(void)
 		strLCD("Enter Sec(60S):");
 		input = ReadNum1();
 		u32LCD(input);
-		if(input < 60)
-			temp_sec = input;
+		if(input != 0xFFFFFFFF)
+		{
+			if(input < 24)
+				temp_hr = input;
+		}
 		//commit time values directly to rtc register
 		SET_RTC_Time_Info(temp_hr,temp_min,temp_sec);
 		
@@ -143,6 +155,16 @@ void edit_rtc(void)
 		//commit Date values directly to rtc register
 		SET_RTC_Date_Info(temp_day,temp_mon,temp_yr);
 		
+		// save the updated time in ROM
+		config.hour = temp_hr;
+		config.minute = temp_min;
+		config.second = temp_sec;
+
+		// save the updated date in ROM
+		config.date = temp_day;
+		config.month = temp_mon;
+		config.year = temp_yr;
+
 		WRITE_LCD_CMD(0x01);
 		strLCD("RTC Updated!");
 		tdelay_ms(1000);
@@ -159,7 +181,8 @@ void edit_threshold(void)
 		 temp_in= ReadNum1();
 	u32LCD(temp_in);
 	if(temp_in <=100)
-	  temp_threshold = temp_in;
+	  config.temp_threshold = temp_in;
+	  Flash_SaveConfig();   // save in ROM
 	
 	 WRITE_LCD_CMD(0x01);
 	strLCD("Limit Saved!");

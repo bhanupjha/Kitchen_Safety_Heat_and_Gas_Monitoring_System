@@ -1,4 +1,4 @@
---cpu ARM7TDMI "startup.o" "timer0_delay.o" "lcd.o" "rtc.o" "lm35.o" "led_buzzer.o" "adc_lpc2148.o" "kpm.o" "event_log.o" "main1.o" "security.o" "eint0.o" --strict --scatter "Safety_Monitoring.sct" 
+--cpu ARM7TDMI "startup.o" "timer0_delay.o" "lcd.o" "rtc.o" "lm35.o" "led_buzzer.o" "adc_lpc2148.o" "kpm.o" "event_log.o" "main1.o" "security.o" "eint0.o" "flash.o" --strict --scatter "Safety_Monitoring.sct" 
 --autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
 --info sizes --info totals --info unused --info veneers 
  --list ".\Safety_Monitoring.map" -o "Safety_Monitoring.axf"

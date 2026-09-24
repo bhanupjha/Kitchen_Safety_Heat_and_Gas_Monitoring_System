@@ -5,4 +5,4 @@ void Edit_Menu(void);
 void edit_rtc(void);
 void edit_threshold(void);
 extern volatile u32 edit_mode;
-extern u32 temp_threshold;
+//extern f32 temp_val;

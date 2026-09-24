@@ -93,6 +93,6 @@
 
 
 //-------------------------------------------threshold_value-------------------------------------------------
-#define THRSHOLD_VAL 20
+//#define THRSHOLD_VAL 20
 
 #endif

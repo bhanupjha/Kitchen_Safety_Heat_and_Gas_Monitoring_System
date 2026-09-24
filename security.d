@@ -10,3 +10,5 @@ security.o: kpm.h
 security.o: types.h
 security.o: security.h
 security.o: types.h
+security.o: flash.h
+security.o: types.h

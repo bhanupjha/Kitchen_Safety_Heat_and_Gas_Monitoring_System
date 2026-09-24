@@ -6,6 +6,7 @@
 #include  "eint0.h"
 #include <lpc21xx.h>
 #include "pin_define.h"
+#include "flash.h"
 
 u32 buzzer_muted = 0;
 f32 LM35tc(void)
@@ -16,12 +17,7 @@ f32 LM35tc(void)
 	return (eAR*100);
 }
 
-f32 LM35tF(void)
-{
-	f32 tempc;
-	tempc = LM35tc();
-	return (tempc*(1.8)+32);
-}
+
 
 void display_temp(f32 tempc)
 {
@@ -46,7 +42,7 @@ void LED_Buzzer_check(f32 tempc, u32 gas_logic)
 {
 	IODIR1 &= ~(1 << SW2);                            // SW2 as input
 
-	if(tempc > temp_threshold || gas_logic == 0)      // unsafe
+	if(tempc > config.temp_threshold || gas_logic == 0)      // unsafe
 	{
 		LED_ON();                                     // LED (fan) stays ON
 

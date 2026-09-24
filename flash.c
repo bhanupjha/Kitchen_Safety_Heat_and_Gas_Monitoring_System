@@ -1,0 +1,120 @@
+#include <lpc214x.h>
+#include <string.h>
+#include "types.h"
+#include "RTC.h"
+#include "security.h"
+#include "flash.h"
+#include "LM35.h"
+#include "eint0.h"
+#include "defines.h"
+
+#define IAP_LOCATION  0x7FFFFFF1
+#define FLASH_ADDR    0x0003F000
+#define SECTOR_NUM    26
+#define CCLK_KHZ      60000
+#define CONFIG_VALID  0x5AA55AA5
+
+typedef void (*IAP)(unsigned int [], unsigned int []);
+IAP iap_entry = (IAP)IAP_LOCATION;
+
+SYSTEM_CONFIG config;
+
+extern f32 temp_threshold;
+//extern u32 gas_threshold;
+extern u32 System_Password;
+
+//--------------------------------------------------//
+/* Load Configuration from Flash                    */
+//--------------------------------------------------//
+void Flash_LoadConfig(void)
+{
+  
+
+    memcpy(&config,(void *)FLASH_ADDR,sizeof(SYSTEM_CONFIG));
+
+    if(config.valid != CONFIG_VALID)
+    {
+        config.hour = 10;
+        config.minute = 30;
+        config.second = 0;
+
+        config.date = 24;
+        config.month = 9;
+        config.year = 2026;
+
+        config.temp_threshold = 30;
+      //  config.gas_threshold = 1;
+        config.password = 1234;
+        config.valid = CONFIG_VALID;
+		Flash_SaveConfig();
+    }
+
+    SET_RTC_Time_Info(config.hour,config.minute,config.second);
+    SET_RTC_Date_Info(config.date,config.month,config.year);
+
+   // temp_threshold = config.temp_threshold;
+   // gas_threshold  = config.gas_threshold;
+    System_Password = config.password;
+}
+
+//--------------------------------------------------//
+/* Save Configuration to Flash                      */
+//--------------------------------------------------//
+void Flash_SaveConfig(void)
+{
+    unsigned int cmd[5];
+    unsigned int res[5];
+
+
+   // config.temp_threshold = temp_threshold;
+   // config.gas_threshold  = gas_threshold;
+    config.password       = System_Password;
+
+    config.valid = CONFIG_VALID;
+
+    /* Prepare sector */
+    cmd[0]=50;
+    cmd[1]=SECTOR_NUM;
+    cmd[2]=SECTOR_NUM;
+    iap_entry(cmd,res);
+
+    /* Erase sector */
+    cmd[0]=52;
+    cmd[1]=SECTOR_NUM;
+    cmd[2]=SECTOR_NUM;
+    cmd[3]=CCLK_KHZ;
+    iap_entry(cmd,res);
+
+    /* Prepare again */
+    cmd[0]=50;
+    cmd[1]=SECTOR_NUM;
+    cmd[2]=SECTOR_NUM;
+    iap_entry(cmd,res);
+
+    /* Copy RAM to Flash */
+    cmd[0]=51;
+    cmd[1]=FLASH_ADDR;
+    cmd[2]=(unsigned int)&config;
+    cmd[3]=512;
+    cmd[4]=CCLK_KHZ;
+    iap_entry(cmd,res);
+}
+	
+void Flash_ClearConfig(void)
+{
+    unsigned int cmd[5];
+    unsigned int res[5];
+
+    /* Prepare sector */
+    cmd[0]=50;
+    cmd[1]=SECTOR_NUM;
+    cmd[2]=SECTOR_NUM;
+    iap_entry(cmd,res);
+
+    /* Erase sector */
+    cmd[0]=52;
+    cmd[1]=SECTOR_NUM;
+    cmd[2]=SECTOR_NUM;
+    cmd[3]=CCLK_KHZ;
+    iap_entry(cmd,res);
+}

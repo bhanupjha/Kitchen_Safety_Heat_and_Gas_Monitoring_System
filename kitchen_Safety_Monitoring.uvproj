@@ -482,6 +482,16 @@
             </File>
           </Files>
         </Group>
+        <Group>
+          <GroupName>flashROM</GroupName>
+          <Files>
+            <File>
+              <FileName>flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\flash.c</FilePath>
+            </File>
+          </Files>
+        </Group>
       </Groups>
     </Target>
   </Targets>

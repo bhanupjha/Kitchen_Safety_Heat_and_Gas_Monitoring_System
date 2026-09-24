@@ -11,3 +11,5 @@ lm35.o: eint0.h
 lm35.o: types.h
 lm35.o: C:\KeilARM\ARM\INC\Philips\lpc21xx.h
 lm35.o: pin_define.h
+lm35.o: flash.h
+lm35.o: types.h

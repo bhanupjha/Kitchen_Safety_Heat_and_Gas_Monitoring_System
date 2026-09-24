@@ -93,13 +93,14 @@ u32 ReadNum1(void)
 {
 	u8 key;
 	u32 sum=0;
+	u8 entered = 0;
 	WRITE_LCD_CMD(0xC0);
 	while(1)
 	{
 		key=keyscan();
 		if(key>='0' && key<='9')
 		{
-		
+			entered = 1;		
 			sum=(sum*10)+(key-48);
 			
 			WRITE_LCD_DATA(key);
@@ -109,6 +110,8 @@ u32 ReadNum1(void)
 			break;
 		}
 	}
+	if(entered == 0)
+		return 0xFFFFFFFF;
 	return sum;
 }
 

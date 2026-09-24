@@ -1,0 +1,15 @@
+flash.o: flash.c
+flash.o: C:\KeilARM\ARM\INC\Philips\lpc214x.h
+flash.o: C:\KeilARM\ARM\RV31\INC\string.h
+flash.o: types.h
+flash.o: RTC.h
+flash.o: types.h
+flash.o: security.h
+flash.o: types.h
+flash.o: flash.h
+flash.o: types.h
+flash.o: LM35.h
+flash.o: types.h
+flash.o: eint0.h
+flash.o: types.h
+flash.o: defines.h

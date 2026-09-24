@@ -11,6 +11,7 @@
 #include "security.h"
 #include "kpm.h"
 #include "timer0.h"
+#include "flash.h"
 
 s32 hour, min, sec, date, month, year, day;
 f32 tempc;
@@ -37,13 +38,18 @@ int main()
     InitKPM();
 	
 	// set the initial time(hours, minute, seconds)
-	SET_RTC_Time_Info(11, 36, 0);
+//	SET_RTC_Time_Info(11, 36, 0);
 	
 	// set the initial date (date, month, year)
-	SET_RTC_Date_Info(19, 9, 2026);		
+//	SET_RTC_Date_Info(19, 9, 2026);		
 	
 	// set initial day (SUN to SAT)
-	SET_RTC_DAY(FRI);
+//	SET_RTC_DAY(FRI);
+
+	// set time and date in RAM
+//	Flash_ClearConfig();
+//	Flash_LoadConfig();
+	Flash_SaveConfig();
 	
 	// Initialize the event log (after the RTC is set)
 	EventLog_Init();
@@ -56,7 +62,7 @@ int main()
 		gas_logic = ((IOPIN0>>MQ2_Gas)&1);
 		
 		// save event if a sensor just crossed its set point
-	    EventLog_Update(tempc, temp_threshold, gas_logic);
+	    EventLog_Update(tempc, config.temp_threshold, gas_logic);
 		
 		// buzzer and LED alert
 	    LED_Buzzer_check(tempc, gas_logic);
@@ -76,7 +82,7 @@ int main()
 			//GET_RTC_DAY(&day);
 			//Display_RTC_Day(day);
 			
-		display_temp(tempc);
+		    display_temp(tempc);
 			display_gas(gas_logic);
 			tdelay_ms(1000);
 		}
