@@ -22,7 +22,7 @@
 ### ADS-LD Output File: 'Safety_Monitoring.axf'
 ### ADS-LD Command File: 'Safety_Monitoring.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile 'Safety_Monitoring.lnp', Handle=0x0000042C
+### Creating CmdFile 'Safety_Monitoring.lnp', Handle=0x0000012C
 ### Writing '.lnp' file
 ### ADS-LD Command file 'Safety_Monitoring.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

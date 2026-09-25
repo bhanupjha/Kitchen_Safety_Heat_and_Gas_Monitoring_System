@@ -49,11 +49,11 @@ void Flash_LoadConfig(void)
         SET_RTC_Time_Info(config.hour,config.minute,config.second);
         SET_RTC_Date_Info(config.date,config.month,config.year);
 
-        temp_val = config.temp_threshold;
-        System_Password = config.password;
-
-		Flash_SaveConfig();
+		    Flash_SaveConfig();
     }
+
+    temp_val = config.temp_threshold;
+    System_Password = config.password;
 
 }
 

@@ -88,9 +88,9 @@ void edit_rtc(void)
 		WRITE_LCD_CMD(0x01);
 		strLCD("Enter Hour(24H):");
 		input = ReadNum1();
+		u32LCD(input);
 		if(input != 0xFFFFFFFF  && input < 24)
 		{
-      u32LCD(input);
 			temp_hr = input;
 		}
 		// Get minutes
@@ -99,9 +99,9 @@ void edit_rtc(void)
 		WRITE_LCD_CMD(0x01);
 		strLCD("Enter Min(60M):");
 		input = ReadNum1();
+		u32LCD(input);
 		if(input != 0xFFFFFFFF && input < 60)
 		{
-      u32LCD(input);
 			temp_min = input;
 		}
 		//GET second
@@ -111,9 +111,9 @@ void edit_rtc(void)
 		WRITE_LCD_CMD(0x01);
 		strLCD("Enter Sec(60S):");
 		input = ReadNum1();
+		u32LCD(input);
 		if(input != 0xFFFFFFFF && input < 60)
 		{
-      u32LCD(input);
 			temp_sec = input;
 		}
 		//commit time values directly to rtc register

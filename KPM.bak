@@ -141,7 +141,7 @@ u32 ReadNum1(void)
 		}
 	}
 	if(entered == 0)
-		return 0xFFFFFFFF;
+		return NULL;
 	return sum;
 }
 
