@@ -123,8 +123,8 @@ u32 ReadNum1(void)
 		{
 			if(count > 0)
 			{
-				sum = sum/10;
 				count--;
+				sum = sum/10;
 				WRITE_LCD_CMD(0x10);
 				WRITE_LCD_DATA(' ');
 				WRITE_LCD_CMD(0x10);

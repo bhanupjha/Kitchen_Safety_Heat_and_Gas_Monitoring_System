@@ -125,29 +125,33 @@ void edit_rtc(void)
 		WRITE_LCD_CMD(0x01);
 		strLCD("Enter Day(31D):");
 		input = ReadNum1();
-		u32LCD(input);
 		if(input > 0 && input <= 31)
+		{
+			u32LCD(input);
 			temp_day = input;
+		}
 		//GET Month
 		WRITE_LCD_CMD(0x01);
 	//	strLCD("Set Date");
 		WRITE_LCD_CMD(0x01);
 		strLCD("Enter Month(12M):");
 		input = ReadNum1();
-		u32LCD(input);
 		if(input > 0 && input <= 12)
+		{
+			u32LCD(input);
 			temp_mon = input;
-		
+		}
 		//Get year
 		WRITE_LCD_CMD(0x01);
 	//	strLCD("Set Date");
 		WRITE_LCD_CMD(0x01);
 		strLCD("Enter year(20S):");
 		input = ReadNum1();
-		u32LCD(input);
 		if(input >= 2000 && input <= 2099)
+		{
+			u32LCD(input);
 			temp_yr = input;
-		
+		}
 		//commit Date values directly to rtc register
 		SET_RTC_Date_Info(temp_day,temp_mon,temp_yr);
 		
@@ -176,9 +180,9 @@ void edit_threshold(void)
 	WRITE_LCD_CMD(0x01);
 	strLCD("Max (T):");
 	temp_in= ReadNum1();
-	u32LCD(temp_in);
 	if(temp_in <= 100)
 	{
+		u32LCD(temp_in);
 		temp_val = temp_in;
 		Flash_SaveConfig();   // save in ROM
 		WRITE_LCD_CMD(0x01);

@@ -33,7 +33,7 @@ int main()
 
   	// set time and date in RAM
 //	Flash_ClearConfig();
-//	Flash_LoadConfig();
+	Flash_LoadConfig();
 //	Flash_SaveConfig();
 
 	// Intialize the ADC

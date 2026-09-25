@@ -9,7 +9,7 @@
 #include "defines.h"
 
 #define IAP_LOCATION  0x7FFFFFF1
-#define FLASH_ADDR    0x0003F000
+#define FLASH_ADDR    0x0007C000
 #define SECTOR_NUM    26
 #define CCLK_KHZ      60000
 #define CONFIG_VALID  0x5AA55AA5
@@ -42,18 +42,21 @@ void Flash_LoadConfig(void)
         config.month = 9;
         config.year = 2026;
 
-        config.temp_threshold = 30;
+        config.temp_threshold = 20;
         config.password = 111;
         config.valid = CONFIG_VALID;
 
         SET_RTC_Time_Info(config.hour,config.minute,config.second);
         SET_RTC_Date_Info(config.date,config.month,config.year);
 
-        temp_val = config.temp_threshold;
-        System_Password = config.password;
+		temp_val = config.temp_threshold;
+     	System_Password = config.password;
 
 		Flash_SaveConfig();
     }
+
+	 temp_val = config.temp_threshold;
+     System_Password = config.password;
 
 }
 
@@ -64,16 +67,15 @@ void Flash_SaveConfig(void)
 {
     unsigned int cmd[5];
     unsigned int res[5];
-
+														                                                                                                                                                                                                                                                                                                                                       
 
    config.temp_threshold = temp_val;
    config.password = System_Password;
-
-    config.valid = CONFIG_VALID;
+																																																																						                                                                                                                                                                                                                                                                                                      
 
     /* Prepare sector */
-    cmd[0]=50;
-    cmd[1]=SECTOR_NUM;
+    cmd[0]=50;                                             
+    cmd[1]=SECTOR_NUM;			                                                                                                                   
     cmd[2]=SECTOR_NUM;
     iap_entry(cmd,res);
 
