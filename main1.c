@@ -11,7 +11,7 @@
 #include "security.h"
 #include "kpm.h"
 #include "timer0.h"
-#include "flash.h"
+//#include "flash.h"
 
 s32 hour, min, sec, date, month, year, day;
 f32 tempc;
@@ -33,7 +33,7 @@ int main()
 
   	// set time and date in RAM
 //	Flash_ClearConfig();
-	Flash_LoadConfig();
+//	Flash_LoadConfig();
 //	Flash_SaveConfig();
 
 	// Intialize the ADC
@@ -43,10 +43,10 @@ int main()
     eint0_enable();
 	
 	// set the initial time(hours, minute, seconds)
-//	SET_RTC_Time_Info(11, 36, 0);
+	SET_RTC_Time_Info(11, 36, 0);
 	
 	// set the initial date (date, month, year)
-//	SET_RTC_Date_Info(19, 9, 2026);		
+	SET_RTC_Date_Info(19, 9, 2026);		
 	
 	// set initial day (SUN to SAT)
 //	SET_RTC_DAY(FRI);

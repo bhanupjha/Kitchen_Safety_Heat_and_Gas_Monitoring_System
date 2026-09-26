@@ -21,5 +21,3 @@ main1.o: kpm.h
 main1.o: types.h
 main1.o: timer0.h
 main1.o: types.h
-main1.o: flash.h
-main1.o: types.h

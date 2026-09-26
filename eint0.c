@@ -10,7 +10,7 @@
 #include "eint0.h"
 #include "defines.h"
 #include "types.h"
-#include "flash.h"
+//#include "flash.h"
 
 volatile u32 edit_mode=0;
 f32 temp_val;
@@ -113,7 +113,7 @@ void edit_rtc(void)
 		input = ReadNum1();
 		if(input != 0xFFFFFFFF && input < 60)
 		{
-      u32LCD(input);
+     		u32LCD(input);
 			temp_sec = input;
 		}
 		//commit time values directly to rtc register
@@ -156,16 +156,16 @@ void edit_rtc(void)
 		SET_RTC_Date_Info(temp_day,temp_mon,temp_yr);
 		
 		// save the updated time in ROM
-		config.hour = temp_hr;
-		config.minute = temp_min;
-		config.second = temp_sec;
+	//	config.hour = temp_hr;
+	//	config.minute = temp_min;
+	//	config.second = temp_sec;
 
 		// save the updated date in ROM
-		config.date = temp_day;
-		config.month = temp_mon;
-		config.year = temp_yr;
+	//	config.date = temp_day;
+	//	config.month = temp_mon;
+	//	config.year = temp_yr;
 
-		Flash_SaveConfig();
+	//	Flash_SaveConfig();
 
 		WRITE_LCD_CMD(0x01);
 		strLCD("RTC Updated!");
@@ -184,7 +184,7 @@ void edit_threshold(void)
 	{
 		u32LCD(temp_in);
 		temp_val = temp_in;
-		Flash_SaveConfig();   // save in ROM
+	//	Flash_SaveConfig();   // save in ROM
 		WRITE_LCD_CMD(0x01);
 		strLCD("Limit Saved!");
 		tdelay_ms(1000);

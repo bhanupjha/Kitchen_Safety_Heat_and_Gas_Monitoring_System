@@ -4,7 +4,7 @@
 #include "timer0.h"
 #include "kpm.h"
 #include "security.h"
-#include "flash.h"
+//#include "flash.h"
 
 u32 Wrong_attempt=3;
 u32 System_Password;
@@ -92,7 +92,7 @@ void change_password(void)
 	if(new_p1==new_p2)
 	{
 		System_Password = new_p1;
-		Flash_SaveConfig();
+//		Flash_SaveConfig();
 		strLCD("Password change");
 	}
 	else

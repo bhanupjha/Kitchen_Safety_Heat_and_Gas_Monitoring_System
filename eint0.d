@@ -18,5 +18,3 @@ eint0.o: eint0.h
 eint0.o: types.h
 eint0.o: defines.h
 eint0.o: types.h
-eint0.o: flash.h
-eint0.o: types.h

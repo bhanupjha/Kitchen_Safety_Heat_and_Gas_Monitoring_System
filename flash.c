@@ -13,9 +13,11 @@
 #define SECTOR_NUM    26
 #define CCLK_KHZ      60000
 #define CONFIG_VALID  0x5AA55AA5
+#define RTC_MAGIC 0X1234ABCD
 
 typedef void (*IAP)(unsigned int [], unsigned int []);
 IAP iap_entry = (IAP)IAP_LOCATION;
+#define GPREG0 (*(volatile unsigned long *) 0xE0024044)
 
 SYSTEM_CONFIG config;
 
@@ -46,9 +48,6 @@ void Flash_LoadConfig(void)
         config.password = 111;
         config.valid = CONFIG_VALID;
 
-        SET_RTC_Time_Info(config.hour,config.minute,config.second);
-        SET_RTC_Date_Info(config.date,config.month,config.year);
-
 		temp_val = config.temp_threshold;
      	System_Password = config.password;
 
@@ -58,6 +57,12 @@ void Flash_LoadConfig(void)
 	 temp_val = config.temp_threshold;
      System_Password = config.password;
 
+	 if(GPREG0 != RTC_MAGIC)
+	 {
+	 	SET_RTC_Time_Info(config.hour,config.minute,config.second);
+    	SET_RTC_Date_Info(config.date,config.month,config.year);
+		GPREG0 = RTC_MAGIC;	
+	 }
 }
 
 //--------------------------------------------------//
