@@ -8,23 +8,21 @@ char week[][4] = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
 void RTC_Init(void)
 {
 	// Disable and reset the RTC
-	CCR = RTC_RESET;
+//	CCR = RTC_RESET;
 	
-	#ifndef CPU_LPC2148
+	#ifdef CPU_LPC2148
 	
-	// set prescaler integer and fractional parts
-	PREINT = PREINT_VAL;
-	PREFRAC = PREFRAC_VAL;
-	
-	// Enable the RTC
-	CCR = RTC_ENABLE; //LPC_2129
+		CCR |= RTC_ENABLE | RTC_CLKSRC;
 	
 	#else
+
+		PREINT = PREINT_VAL;
+		PREFRAC = PREFRAC_VAL;
 	
-	// Enable the RTC with external clock source
-	CCR = RTC_ENABLE | RTC_CLKSRC;  // LPC_2148
-	
-	#endif
+		CCR = RTC_ENABLE; 
+
+
+    #endif
 } 
 
 void SET_RTC_Time_Info(u32 hour, u32 minute, u32 second)

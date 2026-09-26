@@ -390,6 +390,11 @@
               <FileType>2</FileType>
               <FilePath>.\Startup.s</FilePath>
             </File>
+            <File>
+              <FileName>startup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\startup.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

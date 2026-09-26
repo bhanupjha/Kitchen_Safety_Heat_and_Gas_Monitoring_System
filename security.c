@@ -4,10 +4,9 @@
 #include "timer0.h"
 #include "kpm.h"
 #include "security.h"
-//#include "flash.h"
 
 u32 Wrong_attempt=3;
-u32 System_Password;
+u32 System_Password = 111;
 
 u32 CheckPassword(void)
 {
@@ -68,7 +67,7 @@ void change_password(void)
 	strLCD("Security Check");
 	WRITE_LCD_CMD(0x01);
 	strLCD("Old Password:");
-	check = ReadNum1();
+	check = ReadNum();
 	if(check != System_Password)
 	{
 		WRITE_LCD_CMD(0x01);
@@ -80,7 +79,7 @@ void change_password(void)
 	strLCD("Authenticated");
     WRITE_LCD_CMD(0x01);
 	strLCD("New Password:");
-	new_p1 = ReadNum1();
+	new_p1 = ReadNum();
 	  
 	 WRITE_LCD_CMD(0x01);
 	 strLCD("Confirm Pass");

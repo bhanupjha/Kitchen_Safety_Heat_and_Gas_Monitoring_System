@@ -11,7 +11,7 @@
 #include "security.h"
 #include "kpm.h"
 #include "timer0.h"
-//#include "flash.h"
+#include "startup.h"
 
 s32 hour, min, sec, date, month, year, day;
 f32 tempc;
@@ -19,6 +19,9 @@ u32 gas_logic;
 
 int main()
 {
+    // call strtup display name and project
+	startup();
+
   	// Initialize timer
 	Init_timer0();
 
@@ -31,25 +34,11 @@ int main()
   // intialize kpm
     InitKPM();
 
-  	// set time and date in RAM
-//	Flash_ClearConfig();
-//	Flash_LoadConfig();
-//	Flash_SaveConfig();
-
-	// Intialize the ADC
+  // Intialize the ADC
 	Init_ADC();
 
 	// Initialize interrupt
     eint0_enable();
-	
-	// set the initial time(hours, minute, seconds)
-	SET_RTC_Time_Info(11, 36, 0);
-	
-	// set the initial date (date, month, year)
-	SET_RTC_Date_Info(19, 9, 2026);		
-	
-	// set initial day (SUN to SAT)
-//	SET_RTC_DAY(FRI);
 	
 	// Initialize the event log (after the RTC is set)
 	EventLog_Init();
@@ -78,10 +67,7 @@ int main()
 			GET_RTC_Date_Info(&date, &month, &year);
 			Display_RTC_Date(date, month,  year);
 			
-			// Get and display the current day info on LCD
-			//GET_RTC_DAY(&day);
-			//Display_RTC_Day(day);
-			
+			// display temp and gas
 		    display_temp(tempc);
 			display_gas(gas_logic);
 			tdelay_ms(1000);

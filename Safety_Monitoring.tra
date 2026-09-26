@@ -2,6 +2,7 @@
 ### Preparing for ADS-LD.
 ### Creating ADS-LD Command Line
 ### List of Objects: adding '"startup.o"'
+### List of Objects: adding '"startup11.o"'
 ### List of Objects: adding '"timer0_delay.o"'
 ### List of Objects: adding '"lcd.o"'
 ### List of Objects: adding '"rtc.o"'
@@ -13,16 +14,15 @@
 ### List of Objects: adding '"main1.o"'
 ### List of Objects: adding '"security.o"'
 ### List of Objects: adding '"eint0.o"'
-### List of Objects: adding '"flash.o"'
 ### ADS-LD Command completed:
---cpu ARM7TDMI "startup.o" "timer0_delay.o" "lcd.o" "rtc.o" "lm35.o" "led_buzzer.o" "adc_lpc2148.o" "kpm.o" "event_log.o" "main1.o" "security.o" "eint0.o" "flash.o" --strict --scatter "Safety_Monitoring.sct" 
+--cpu ARM7TDMI "startup.o" "startup11.o" "timer0_delay.o" "lcd.o" "rtc.o" "lm35.o" "led_buzzer.o" "adc_lpc2148.o" "kpm.o" "event_log.o" "main1.o" "security.o" "eint0.o" --strict --scatter "Safety_Monitoring.sct" 
 --autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
 --info sizes --info totals --info unused --info veneers 
  --list ".\Safety_Monitoring.map" -o "Safety_Monitoring.axf"### Preparing Environment (PrepEnvAds)
 ### ADS-LD Output File: 'Safety_Monitoring.axf'
 ### ADS-LD Command File: 'Safety_Monitoring.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile 'Safety_Monitoring.lnp', Handle=0x000000AC
+### Creating CmdFile 'Safety_Monitoring.lnp', Handle=0x000003D0
 ### Writing '.lnp' file
 ### ADS-LD Command file 'Safety_Monitoring.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

@@ -10,10 +10,9 @@
 #include "eint0.h"
 #include "defines.h"
 #include "types.h"
-//#include "flash.h"
 
 volatile u32 edit_mode=0;
-f32 temp_val;
+f32 temp_val = THRSHOLD_VAL;
 
 void eint0_isr(void)__irq
 {
@@ -69,14 +68,137 @@ void Edit_Menu(void)
 		case 3: change_password();
 		           break;
 		case 4: WRITE_LCD_CMD(0x01);
-            strLCD("Exiting...");
-            tdelay_ms(1000);
-            edit_mode = 0;
-    default: break;
+           		strLCD("Exiting...");
+            	tdelay_ms(1000);
+            	edit_mode = 0;
+				break;
+    	default: break;
+	}
+}
+
+void edit_rtc()
+{
+	u32 choice;
+	WRITE_LCD_CMD(0x01);
+	strLCD("1:Time 2: Date");
+	WRITE_LCD_CMD(0xC0);
+	strLCD("3:Exit");
+	tdelay_ms(1000);
+	//choice = ReadNum1();
+	WRITE_LCD_CMD(0x01);
+	strLCD("CHOICE=");
+	choice = ReadNum1();
+	u32LCD(choice);
+	switch(choice)
+	{
+		case 1: edit_time();
+		          break;
+		case 2: edit_date();
+		           break;
+		case 3: WRITE_LCD_CMD(0x01);
+           		strLCD("Exiting...");
+            	tdelay_ms(1000);
+            	edit_mode = 0;
+				break;
+    	default: break;
 	}
 }
 	
-void edit_rtc(void)	
+void edit_time()
+{
+		s32 temp_hr,temp_min,temp_sec;
+		u32 input;
+	    GET_RTC_Time_Info(&temp_hr, &temp_min, &temp_sec);
+		WRITE_LCD_CMD(0x01);
+		strLCD("Set TIME ");
+		WRITE_LCD_CMD(0x01);
+		strLCD("Enter Hour(24H):");
+		input = ReadNum1();
+		if(input != 0xFFFFFFFF  && input < 24)
+		{
+      		u32LCD(input);
+			temp_hr = input;
+		}
+		// Get minutes
+		WRITE_LCD_CMD(0x01);
+	//	strLCD("Set TIME ");
+		WRITE_LCD_CMD(0x01);
+		strLCD("Enter Min(60M):");
+		input = ReadNum1();
+		if(input != 0xFFFFFFFF && input < 60)
+		{
+      		u32LCD(input);
+			temp_min = input;
+		}
+		//GET second
+		
+		WRITE_LCD_CMD(0x01);
+	//	strLCD("Set TIME ");
+		WRITE_LCD_CMD(0x01);
+		strLCD("Enter Sec(60S):");
+		input = ReadNum1();
+		if(input != 0xFFFFFFFF && input < 60)
+		{
+     		u32LCD(input);
+			temp_sec = input;
+		}
+		//commit time values directly to rtc register
+		SET_RTC_Time_Info(temp_hr,temp_min,temp_sec);
+		WRITE_LCD_CMD(0x01);
+		strLCD("Time Updated!");
+		tdelay_ms(1000);
+		
+}
+
+void edit_date()
+{
+	s32 temp_day,temp_mon,temp_yr;
+	u32 input;
+	GET_RTC_Date_Info(&temp_day, &temp_mon, &temp_yr);
+	WRITE_LCD_CMD(0x01);
+	strLCD("Set DATE ");
+	WRITE_LCD_CMD(0x01);
+		strLCD("Set Date");
+		WRITE_LCD_CMD(0x01);
+		strLCD("Enter Day(31D):");
+		input = ReadNum1();
+		if(input > 0 && input <= 31)
+		{
+			u32LCD(input);
+			temp_day = input;
+		}
+		//GET Month
+		WRITE_LCD_CMD(0x01);
+	//	strLCD("Set Date");
+		WRITE_LCD_CMD(0x01);
+		strLCD("Enter Month(12M):");
+		input = ReadNum1();
+		if(input > 0 && input <= 12)
+		{
+			u32LCD(input);
+			temp_mon = input;
+		}
+		//Get year
+		WRITE_LCD_CMD(0x01);
+	//	strLCD("Set Date");
+		WRITE_LCD_CMD(0x01);
+		strLCD("Enter year(20S):");
+		input = ReadNum1();
+		if(input >= 2000 && input <= 2099)
+		{
+			u32LCD(input);
+			temp_yr = input;
+		}
+		//commit Date values directly to rtc register
+		SET_RTC_Date_Info(temp_day,temp_mon,temp_yr);
+
+		WRITE_LCD_CMD(0x01);
+		strLCD("DATE Updated!");
+		tdelay_ms(1000);
+		
+
+}
+/*void edit_rtc(void)	
 {
 		s32 temp_hr,temp_min,temp_sec;
 		s32 temp_day,temp_mon,temp_yr;
@@ -101,7 +223,7 @@ void edit_rtc(void)
 		input = ReadNum1();
 		if(input != 0xFFFFFFFF && input < 60)
 		{
-      u32LCD(input);
+      		u32LCD(input);
 			temp_min = input;
 		}
 		//GET second
@@ -171,7 +293,7 @@ void edit_rtc(void)
 		strLCD("RTC Updated!");
 		tdelay_ms(1000);
 		
-}
+} */
 void edit_threshold(void)
 {
 	u32 temp_in;
