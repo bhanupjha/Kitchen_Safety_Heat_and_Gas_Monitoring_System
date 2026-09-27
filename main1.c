@@ -11,7 +11,7 @@
 #include "security.h"
 #include "kpm.h"
 #include "timer0.h"
-#include "startup.h"
+#include "display_name.h"
 
 s32 hour, min, sec, date, month, year, day;
 f32 tempc;
@@ -19,9 +19,6 @@ u32 gas_logic;
 
 int main()
 {
-    // call strtup display name and project
-	startup();
-
   	// Initialize timer
 	Init_timer0();
 
@@ -43,6 +40,8 @@ int main()
 	// Initialize the event log (after the RTC is set)
 	EventLog_Init();
 
+	//Display name and project
+	startup();
 	
 	while(1)
 	{
