@@ -4,15 +4,17 @@
 #include "defines.h"
 #include "types.h"
 #include "timer0.h"
+#include "sensor.h"
 
 
 void Init_ADC(void)
 {
-	// cfg p0.28 as AIN0
+	// cfg p0.28 as AIN1
 	PINSEL1 |=AIN1;
 	 
 	ADCR = (1<<PDN_BIT)|(CLK_DIV_VALUE<<CLKDIV);
 }
+
 void Read_ADC(u32 chno,u32 *dval,f32 *eAR)
 {
 	// clear previous channel value

@@ -7,18 +7,18 @@
 #include "timer0.h"
 #include "Event_Log.h"
 
-// ---------- the last event (only ONE is kept, a new event overwrites the old one) ----------
+
 static u32 ev_valid = 0;      // 0 = nothing stored yet, 1 = an event is stored
-static u32 ev_sensor = 0;     // 1 = TEMP, 2 = GAS
-static f32 ev_value = 0;      // temp value in degC, or gas pin level
+static u32 ev_sensor = 0;     
+static f32 ev_value = 0;      
 static u32 ev_hour, ev_min, ev_sec;
 
-// ---------- remember if the sensor was already unsafe (so only the FIRST crossing is saved) ----------
+
 static u32 temp_unsafe = 0;
 static u32 gas_unsafe = 0;
 
-// ---------- 10 second period ----------
-static u32 period_start = 0;  // RTC second when the current 10 s period started
+
+static u32 period_start = 0;  
 
 
 // read only the seconds from the RTC
@@ -91,38 +91,38 @@ static void show_event_screen(void)
 }
 
 
-// call once at start (after RTC is set)
+// Intialize -> after RTC
 void EventLog_Init(void)
 {
 	ev_valid = 0;
 	temp_unsafe = 0;
 	gas_unsafe = 0;
 
-	Init_timer0();                       // timer used by tdelay_s()
+	Init_timer0();                       
 	period_start = get_rtc_seconds();
 }
 
-// call every loop : saves an event only when a sensor goes from SAFE to UNSAFE
+//  an event only when a sensor goes from SAFE to UNSAFE
 void EventLog_Update(f32 tempc, f32 tempSetPoint, u32 gasLogic)
 {
-	// ---- temperature ----
+	
 	if(tempc > tempSetPoint)
 	{
-		if(temp_unsafe == 0)             // it was safe before -> this is a new crossing
+		if(temp_unsafe == 0)             
 		{
 			temp_unsafe = 1;
 			record_event(1, tempc);
 		}
 	}
-	else if(tempc <= tempSetPoint - 2)   // came down 2 degC below set point -> ready for next event
+	else if(tempc <= tempSetPoint - 2)   // 2 degC below set point -> rest temp -> ready for next crossing
 	{
 		temp_unsafe = 0;
 	}
 
-	// ---- gas (MQ2 pin gives 0 when gas is detected) ----
+	// gas detected -> 0
 	if(gasLogic == 0)
 	{
-		if(gas_unsafe == 0)              // it was safe before -> this is a new crossing
+		if(gas_unsafe == 0)              
 		{
 			gas_unsafe = 1;
 			record_event(2, gasLogic);
@@ -134,21 +134,18 @@ void EventLog_Update(f32 tempc, f32 tempSetPoint, u32 gasLogic)
 	}
 }
 
-// call every loop : every 10 s show the stored event for 3 s
-// returns 1 if the event screen was shown in this pass, otherwise 0
+
 u32 EventLog_DisplayTask(void)
 {
 	u32 now;
 
 	now = get_rtc_seconds();
 
-	// has 10 seconds passed ?
-	// (+60 and %60 is used so it also works when seconds go 59 -> 0)
-	if((now + 60 - period_start) % 60 >= EVENT_PERIOD_SEC)
+		if((now + 60 - period_start) % 60 >= EVENT_PERIOD_SEC)
 	{
 		period_start = now;
 
-		if(ev_valid == 1)                // show only if an event exists
+		if(ev_valid == 1)                
 		{
 			show_event_screen();
 			tdelay_s(EVENT_SHOW_SEC);    // keep it on the LCD for 3 seconds (Timer0 delay)

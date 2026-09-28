@@ -2,13 +2,14 @@
 #include "ADC.h"
 #include "defines.h"
 #include "LCD.h"
-#include "LM35.h"
-#include  "eint0.h"
+#include "sensor.h"
+#include  "interrupt.h"
 #include <lpc21xx.h>
 #include "pin_define.h"
-#include "flash.h"
 
 u32 buzzer_muted = 0;
+
+//---------------------------------------------------Read_LM35temp()---------------------------------------------------------------------
 f32 LM35tc(void)
 {
 	u32 dval;
@@ -17,8 +18,7 @@ f32 LM35tc(void)
 	return (eAR*100);
 }
 
-
-
+//----------------------------------------------------display_temp()----------------------------------------------------------------------
 void display_temp(f32 tempc)
 {
 	  WRITE_LCD_CMD(0X88);
@@ -29,6 +29,7 @@ void display_temp(f32 tempc)
 	 
 }
 
+//---------------------------------------------------display_gas()--------------------------------------------------------------------
 void display_gas(u32 gas_logic)
 {
 	WRITE_LCD_CMD(0XCA);
@@ -38,13 +39,14 @@ void display_gas(u32 gas_logic)
 	
 }
 
+//--------------------------------------------------LED_Buzzer_check-------------------------------------------------------------------------
 void LED_Buzzer_check(f32 tempc, u32 gas_logic)
 {
-	IODIR1 &= ~(1 << SW2);                            // SW2 as input
+	IODIR1 &= ~(1 << SW2);                            
 
-	if(tempc > temp_val || gas_logic == 0)      // unsafe
+	if(tempc > temp_val || gas_logic == 0)      
 	{
-		LED_ON();                                     // LED (fan) stays ON
+		LED_ON();                                     
 
 		if((IOPIN1 &(1<<SW2))==0)
 		{
@@ -57,10 +59,10 @@ void LED_Buzzer_check(f32 tempc, u32 gas_logic)
 			Buzzer_ON();
 		}
 	}
-	else                                              // safe
+	else                                             
 	{
 		Buzzer_OFF();
 		LED_OFF();
-		buzzer_muted = 0;                             // ready for the next alert
+		buzzer_muted = 0;                             
 	}
 }

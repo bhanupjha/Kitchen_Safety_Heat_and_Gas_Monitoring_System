@@ -1,4 +1,7 @@
 //--------------LCD_pin_define-----------------------------------------
+#ifndef __PIN_DEFINE_H
+#define __PIN_DEFINE_H
+
 #define LCD_DATA 8	 // p0.8 to po.15
 #define LCD_RS 17    // p0.16
 #define LCD_RW 16    // p0.17
@@ -28,3 +31,8 @@
 
 //--------------------------Buzzer pin----------------------------------
 #define Buzzer_pin 6
+
+//--------------------------LED_pin-----------------------------------
+#define LED_pin 4
+
+#endif

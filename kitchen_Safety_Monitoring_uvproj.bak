@@ -13,7 +13,7 @@
       <TargetOption>
         <TargetCommonOption>
           <Device>LPC2148</Device>
-          <Vendor>NXP (founded by Philips)</Vendor>
+          <Vendor>NXP</Vendor>
           <Cpu>IRAM(0x40000000-0x40007FFF) IROM(0-0x7FFFF) CLOCK(12000000) CPUTYPE(ARM7TDMI)</Cpu>
           <FlashUtilSpec>LPC210x_ISP.EXE ("#H" ^X $D COM1: 38400 1)</FlashUtilSpec>
           <StartupFile>"STARTUP\Philips\Startup.s" ("Philips LPC2100 Startup Code")</StartupFile>
@@ -172,7 +172,7 @@
           </Flash1>
           <bUseTDR>0</bUseTDR>
           <Flash2>BIN\UL2ARM.DLL</Flash2>
-          <Flash3>"LPC210x_ISP.EXE" ("#H" ^X $D COM1: 38400 1)</Flash3>
+          <Flash3>LPC210x_ISP.EXE ("#H" ^X $D COM1: 38400 1)</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -501,9 +501,9 @@
               <FilePath>.\security.c</FilePath>
             </File>
             <File>
-              <FileName>eint0.c</FileName>
+              <FileName>interrupt.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\eint0.c</FilePath>
+              <FilePath>.\interrupt.c</FilePath>
             </File>
           </Files>
         </Group>

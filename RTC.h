@@ -1,3 +1,7 @@
+//--------------------------------------------RTC.h------------------------------------------------
+#ifndef __RTC_H
+#define __RTC_H
+
 #include "types.h"
 void RTC_Init(void);
 void SET_RTC_Time_Info(u32 hour, u32 minute, u32 second);
@@ -9,3 +13,5 @@ void Display_RTC_Date(u32 date, u32 month, u32 year);
 void SET_RTC_DAY(u32 dow);
 void GET_RTC_DAY(s32 *dow);
 void Display_RTC_Day(u32 day);
+
+#endif

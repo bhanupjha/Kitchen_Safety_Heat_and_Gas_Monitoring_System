@@ -22,7 +22,7 @@ void RTC_Init(void)
 		CCR = RTC_ENABLE; 
 
 
-    #endif	 
+  #endif	 
 } 
 
 void SET_RTC_Time_Info(u32 hour, u32 minute, u32 second)

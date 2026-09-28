@@ -3,10 +3,10 @@
 #include "types.h"
 #include "defines.h"
 #include "LM35.h"
-#include "ADC.h"
+#include "sensor.h"
 #include "pin_define.h"
 #include "Event_Log.h"
-#include "eint0.h"
+#include "interrupt.h"
 #include <lpc21xx.h>
 #include "security.h"
 #include "kpm.h"
@@ -26,7 +26,7 @@ int main()
 	Init_LCD();
 
 	//Display name and project
-	startup();
+	display_name();
 
 	// Initialize RTC
 	RTC_Init();
@@ -42,6 +42,10 @@ int main()
 	
 	// Initialize the event log (after the RTC is set)
 	EventLog_Init();
+	
+  // For proteus -> Sets initial time and date on first power-up
+	SET_RTC_Time_Info(00, 55, 1);
+	SET_RTC_Date_Info(29, 9, 2026); 
 	
 	while(1)
 	{

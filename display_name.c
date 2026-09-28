@@ -3,7 +3,7 @@
 #include "display_name.h"
 #include "LCD.h"
 
-void startup()
+void display_name()
 {
 		WRITE_LCD_CMD(GOTO_LINE1_POS0);
 		strLCD("BHANU PRAKASH");

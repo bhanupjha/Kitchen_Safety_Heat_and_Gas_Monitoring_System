@@ -1,37 +1,42 @@
 #include <lpc21xx.h>
 #include "pin_define.h"
+
+//-------------------------------------------------------------LED_ON()----------------------------------------------------------------------------
 void LED_ON(void)
 {
-	// set pin po.6 as o/p
-	IODIR0 |= 1<<4;
+	// set LED_pin as o/p
+	IODIR0 |= 1<<LED_pin;
 	
-	// Make high pin 6
-	IOCLR0 = 1<<4;
+	// Make high LED_pin
+	IOCLR0 = 1<<LED_pin;
 }
 
+//--------------------------------------------------------------LED_OFF()------------------------------------------------------------------------------
 void LED_OFF(void)
 {
-	// set pin po.6 as o/p
-	IODIR0 |= 1<<4;
+	// set LED_pin as o/p
+	IODIR0 |= 1<<LED_pin;
 	
-	// Make high pin 6
-	IOSET0 = 1<<4;
+	// Make high LED_pin
+	IOSET0 = 1<<LED_pin;
 }
 
+//--------------------------------------------------------------Buzzer_ON()--------------------------------------------------------------------------
 void Buzzer_ON(void)
 {
-	// set pin po.6 as o/p
+	// set Buzzer_pin as o/p
 	IODIR0 |= 1<<Buzzer_pin;
 	
-	// Make high pin 6
+	// Make high Buzzer_pin
 	IOSET0 = 1<<Buzzer_pin;
 }
 
+//-------------------------------------------------------------Buzzer_off()-------------------------------------------------------------------------
 void Buzzer_OFF(void)
 {
-	// set pin po.6 as o/p
+	// set Buzzer_pin as o/p
 	IODIR0 |= 1<<Buzzer_pin;
 	
-	// Make high pin 6
+	// Make high Buzzer_pin
 	IOCLR0 = 1<<Buzzer_pin;
 }
