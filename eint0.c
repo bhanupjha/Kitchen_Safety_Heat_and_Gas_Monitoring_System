@@ -112,7 +112,7 @@ void edit_time()
 		WRITE_LCD_CMD(0x01);
 		strLCD("Set TIME ");
 		WRITE_LCD_CMD(0x01);
-		strLCD("Enter Hour(24H):");
+		strLCD("Enter Hour(0-23):");
 		input = ReadNum1();
 		if(input != 0xFFFFFFFF  && input < 24)
 		{

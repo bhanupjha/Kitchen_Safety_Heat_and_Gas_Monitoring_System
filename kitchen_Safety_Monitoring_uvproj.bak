@@ -411,9 +411,9 @@
               <FilePath>.\Startup.s</FilePath>
             </File>
             <File>
-              <FileName>startup11.c</FileName>
+              <FileName>display_name.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\startup11.c</FilePath>
+              <FilePath>.\display_name.c</FilePath>
             </File>
           </Files>
         </Group>

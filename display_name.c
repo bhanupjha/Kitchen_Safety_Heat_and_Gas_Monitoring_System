@@ -5,9 +5,9 @@
 
 void startup()
 {
-		WRITE_LCD_CMD(MODE_8BIT_1LINE);
+		WRITE_LCD_CMD(GOTO_LINE1_POS0);
 		strLCD("BHANU PRAKASH");
-		WRITE_LCD_CMD(MODE_8BIT_2LINE);
+		WRITE_LCD_CMD(GOTO_LINE2_POS0);
 		strLCD("KITCHEN SAFETY");
-		tdelay_s(2);
+		tdelay_s(1);
 }

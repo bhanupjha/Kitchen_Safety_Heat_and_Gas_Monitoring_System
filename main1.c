@@ -25,6 +25,9 @@ int main()
 	// Initialize the LCD
 	Init_LCD();
 
+	//Display name and project
+	startup();
+
 	// Initialize RTC
 	RTC_Init();
 
@@ -39,9 +42,6 @@ int main()
 	
 	// Initialize the event log (after the RTC is set)
 	EventLog_Init();
-
-	//Display name and project
-	startup();
 	
 	while(1)
 	{
