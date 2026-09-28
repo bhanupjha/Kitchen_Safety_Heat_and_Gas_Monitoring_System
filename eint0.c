@@ -106,13 +106,93 @@ void edit_rtc()
 	
 void edit_time()
 {
+	u32 choice;
+	WRITE_LCD_CMD(0x01);
+	strLCD("1:Hour 2:Min");
+	WRITE_LCD_CMD(0xC0);
+	strLCD("3:Sec 4:All");
+	tdelay_ms(1000);
+	//choice = ReadNum1();
+	WRITE_LCD_CMD(0x01);
+	strLCD("CHOICE=");
+	choice = ReadNum1();
+	u32LCD(choice);
+	switch(choice)
+	{
+		case 1: edit_hr();
+		        break;
+		case 2: edit_min();
+		        break;
+		case 3: edit_sec();
+		        break;
+		case 4: edit_Hr_Min_Sec();
+		        break;
+		default: WRITE_LCD_CMD(0x01);
+           		strLCD("Exiting...");
+            	tdelay_ms(1000);
+            	edit_mode = 0;
+				break;
+	}
+}
+
+void edit_hr()
+{
+	s32 temp_hr,temp_min,temp_sec;
+	u32 input;
+	GET_RTC_Time_Info(&temp_hr, &temp_min, &temp_sec);
+	WRITE_LCD_CMD(0x01);
+	strLCD("Set TIME ");
+	WRITE_LCD_CMD(0x01);
+	strLCD("Enter HR(0-23):");
+	input = ReadNum1();
+	if(input != 0xFFFFFFFF  && input < 24)
+	{
+      	u32LCD(input);
+		temp_hr = input;
+	}
+}
+
+void edit_min()
+{
+	WRITE_LCD_CMD(0x01);
+	//	strLCD("Set TIME ");
+	WRITE_LCD_CMD(0x01);
+	strLCD("Enter Min(0-59):");
+	input = ReadNum1();
+	if(input != 0xFFFFFFFF && input < 60)
+	{
+      	u32LCD(input);
+		temp_min = input;
+	}
+}
+
+void edit_sec()
+{
+	WRITE_LCD_CMD(0x01);
+	//	strLCD("Set TIME ");
+	WRITE_LCD_CMD(0x01);
+	strLCD("Enter Sec(0-59):");
+	input = ReadNum1();
+	if(input != 0xFFFFFFFF && input < 60)
+	{
+     	u32LCD(input);
+		temp_sec = input;
+	}
+	//commit time values directly to rtc register
+	SET_RTC_Time_Info(temp_hr,temp_min,temp_sec);
+	WRITE_LCD_CMD(0x01);
+	strLCD("Time Updated!");
+	tdelay_ms(1000);
+}
+void edit_Hr_Min_Sec()
+{
 		s32 temp_hr,temp_min,temp_sec;
 		u32 input;
 	    GET_RTC_Time_Info(&temp_hr, &temp_min, &temp_sec);
 		WRITE_LCD_CMD(0x01);
 		strLCD("Set TIME ");
 		WRITE_LCD_CMD(0x01);
-		strLCD("Enter Hour(0-23):");
+		strLCD("Enter HR(0-23):");
 		input = ReadNum1();
 		if(input != 0xFFFFFFFF  && input < 24)
 		{
@@ -123,7 +203,7 @@ void edit_time()
 		WRITE_LCD_CMD(0x01);
 	//	strLCD("Set TIME ");
 		WRITE_LCD_CMD(0x01);
-		strLCD("Enter Min(60M):");
+		strLCD("Enter Min(0-59):");
 		input = ReadNum1();
 		if(input != 0xFFFFFFFF && input < 60)
 		{
@@ -135,7 +215,7 @@ void edit_time()
 		WRITE_LCD_CMD(0x01);
 	//	strLCD("Set TIME ");
 		WRITE_LCD_CMD(0x01);
-		strLCD("Enter Sec(60S):");
+		strLCD("Enter Sec(0-59):");
 		input = ReadNum1();
 		if(input != 0xFFFFFFFF && input < 60)
 		{
