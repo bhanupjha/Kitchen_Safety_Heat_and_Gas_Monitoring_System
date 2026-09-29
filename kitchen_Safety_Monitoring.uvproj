@@ -386,14 +386,14 @@
           <GroupName>Startup</GroupName>
           <Files>
             <File>
-              <FileName>Startup.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\startup\Startup.s</FilePath>
-            </File>
-            <File>
               <FileName>display_name.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Source_file\display_name.c</FilePath>
+            </File>
+            <File>
+              <FileName>Startup.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\Startup.s</FilePath>
             </File>
           </Files>
         </Group>
