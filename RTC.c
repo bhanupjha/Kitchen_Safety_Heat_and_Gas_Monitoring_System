@@ -3,8 +3,6 @@
 #include "defines.h"
 #include "LCD.h"
 
-char week[][4] = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
-
 void RTC_Init(void)
 {
 	// Disable and reset the RTC
@@ -12,7 +10,7 @@ void RTC_Init(void)
 	
 	#ifdef CPU_LPC2148
 	
-		CCR |= RTC_ENABLE | RTC_CLKSRC;
+		CCR = RTC_ENABLE | RTC_CLKSRC;
 	
 	#else
 
@@ -78,18 +76,3 @@ void Display_RTC_Date(u32 date, u32 month, u32 year)
 	u32LCD(year);
 }
 
-void SET_RTC_DAY(u32 dow)
-{
-	DOW = dow;
-}
-
-void GET_RTC_DAY(s32 *dow)
-{
-	*dow = DOW;
-}
-
-void Display_RTC_Day(u32 day)
-{
-	WRITE_LCD_CMD(GOTO_LINE1_POS0 + 10);
-	strLCD(week[day]);
-}

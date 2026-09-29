@@ -1,86 +1,72 @@
 Dependencies for Project 'kitchen_Safety_Monitoring', Target 'LPC2148': (DO NOT MODIFY !)
-F (.\Startup.s)(0x532C14EA)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
-F (.\display_name.c)(0x6ABAD5B5)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\display_name.o --omf_browse .\display_name.crf --depend .\display_name.d)
-I (defines.h)(0x6ABAD5B5)
-I (timer0.h)(0x6AAF7EA3)
-I (types.h)(0x6ABAD5B5)
-I (display_name.h)(0x6ABAD7FA)
-I (LCD.h)(0x6ABAD7FA)
-F (.\timer0_delay.c)(0x6AAF74BD)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\timer0_delay.o --omf_browse .\timer0_delay.crf --depend .\timer0_delay.d)
-I (C:\Keil\ARM\Inc\Philips\lpc21xx.h)(0x532C1500)
-I (types.h)(0x6ABAD5B5)
-F (.\LCD.c)(0x6AAF7573)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\lcd.o --omf_browse .\lcd.crf --depend .\lcd.d)
-I (C:\Keil\ARM\Inc\Philips\lpc21xx.h)(0x532C1500)
-I (types.h)(0x6ABAD5B5)
-I (timer0.h)(0x6AAF7EA3)
-I (defines.h)(0x6ABAD5B5)
-I (Pin_define.h)(0x6ABAD7FA)
-F (.\RTC.c)(0x6ABAB94E)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\rtc.o --omf_browse .\rtc.crf --depend .\rtc.d)
-I (C:\Keil\ARM\Inc\Philips\lpc21xx.h)(0x532C1500)
-I (types.h)(0x6ABAD5B5)
-I (defines.h)(0x6ABAD5B5)
-I (LCD.h)(0x6ABAD7FA)
-F (.\LM35.c)(0x6ABADBBD)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\lm35.o --omf_browse .\lm35.crf --depend .\lm35.d)
-I (types.h)(0x6ABAD5B5)
-I (ADC.h)(0x6ABAD870)
-I (defines.h)(0x6ABAD5B5)
-I (LCD.h)(0x6ABAD7FA)
-I (sensor.h)(0x6ABAD870)
-I (interrupt.h)(0x6ABADA72)
-I (C:\Keil\ARM\Inc\Philips\lpc21xx.h)(0x532C1500)
-I (pin_define.h)(0x6ABAD7FA)
-F (.\LED_Buzzer.c)(0x6ABAD989)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\led_buzzer.o --omf_browse .\led_buzzer.crf --depend .\led_buzzer.d)
-I (C:\Keil\ARM\Inc\Philips\lpc21xx.h)(0x532C1500)
-I (pin_define.h)(0x6ABAD7FA)
-F (.\ADC.c)(0x6ABADBE7)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\adc.o --omf_browse .\adc.crf --depend .\adc.d)
-I (C:\Keil\ARM\Inc\Philips\lpc21xx.h)(0x532C1500)
-I (defines.h)(0x6ABAD5B5)
-I (types.h)(0x6ABAD5B5)
-I (timer0.h)(0x6AAF7EA3)
-I (sensor.h)(0x6ABAD870)
-F (.\KPM.c)(0x6AB957B7)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\kpm.o --omf_browse .\kpm.crf --depend .\kpm.d)
-I (C:\Keil\ARM\Inc\Philips\lpc21xx.h)(0x532C1500)
-I (types.h)(0x6ABAD5B5)
-I (pin_define.h)(0x6ABAD7FA)
-I (LCD.h)(0x6ABAD7FA)
-F (.\Event_log.c)(0x6ABADE02)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\event_log.o --omf_browse .\event_log.crf --depend .\event_log.d)
-I (types.h)(0x6ABAD5B5)
-I (defines.h)(0x6ABAD5B5)
-I (LCD.h)(0x6ABAD7FA)
-I (RTC.h)(0x6ABADE02)
-I (timer0.h)(0x6AAF7EA3)
-I (Event_Log.h)(0x6ABADE02)
-F (.\main1.c)(0x6ABADA91)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\main1.o --omf_browse .\main1.crf --depend .\main1.d)
-I (LCD.h)(0x6ABAD7FA)
-I (types.h)(0x6ABAD5B5)
-I (RTC.h)(0x6ABADE02)
-I (defines.h)(0x6ABAD5B5)
-I (LM35.h)(0x6AB02516)
-I (sensor.h)(0x6ABAD870)
-I (pin_define.h)(0x6ABAD7FA)
-I (Event_Log.h)(0x6ABADE02)
-I (interrupt.h)(0x6ABADA72)
-I (C:\Keil\ARM\Inc\Philips\lpc21xx.h)(0x532C1500)
-I (security.h)(0x6AB957B7)
-I (kpm.h)(0x6AAF917B)
-I (timer0.h)(0x6AAF7EA3)
-I (display_name.h)(0x6ABAD7FA)
-F (.\security.c)(0x6ABAD5B5)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\security.o --omf_browse .\security.crf --depend .\security.d)
-I (types.h)(0x6ABAD5B5)
-I (security.h)(0x6AB957B7)
-I (LCD.h)(0x6ABAD7FA)
-I (timer0.h)(0x6AAF7EA3)
-I (kpm.h)(0x6AAF917B)
-I (defines.h)(0x6ABAD5B5)
-F (.\interrupt.c)(0x6ABAD961)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\interrupt.o --omf_browse .\interrupt.crf --depend .\interrupt.d)
-I (C:\Keil\ARM\Inc\Philips\lpc21xx.h)(0x532C1500)
-I (types.h)(0x6ABAD5B5)
-I (KPM.h)(0x6AAF917B)
-I (LCD.h)(0x6ABAD7FA)
-I (RTC.h)(0x6ABADE02)
-I (ADC.h)(0x6ABAD870)
-I (security.h)(0x6AB957B7)
-I (pin_define.h)(0x6ABAD7FA)
-I (timer0.h)(0x6AAF7EA3)
-I (eint0.h)(0x6ABAC6E9)
-I (defines.h)(0x6ABAD5B5)
+F (.\Startup.s)(0x6AB04E46)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I "C:\KeilARM\ARM\INC" -I "C:\KeilARM\ARM\INC\Philips" --list "Startup.lst" --xref -o "Startup.o" --depend "Startup.d")
+F (.\display_name.c)(0x6ABB44D2)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I "C:\KeilARM\ARM\INC" -I "C:\KeilARM\ARM\INC\Philips" -o "display_name.o" --omf_browse "display_name.crf" --depend "display_name.d")
+I (defines.h)(0x6ABB8F9E)
+I (timer0.h)(0x6AB04E46)
+I (types.h)(0x6ABB44D2)
+I (display_name.h)(0x6ABB44D2)
+I (LCD.h)(0x6ABB44D2)
+F (.\timer0_delay.c)(0x6AB04E46)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I "C:\KeilARM\ARM\INC" -I "C:\KeilARM\ARM\INC\Philips" -o "timer0_delay.o" --omf_browse "timer0_delay.crf" --depend "timer0_delay.d")
+I (C:\KeilARM\ARM\INC\Philips\lpc21xx.h)(0x4BB1C2C8)
+I (types.h)(0x6ABB44D2)
+F (.\LCD.c)(0x6AB04E46)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I "C:\KeilARM\ARM\INC" -I "C:\KeilARM\ARM\INC\Philips" -o "lcd.o" --omf_browse "lcd.crf" --depend "lcd.d")
+I (C:\KeilARM\ARM\INC\Philips\lpc21xx.h)(0x4BB1C2C8)
+I (types.h)(0x6ABB44D2)
+I (timer0.h)(0x6AB04E46)
+I (defines.h)(0x6ABB8F9E)
+I (Pin_define.h)(0x6ABB49F0)
+F (.\RTC.c)(0x6ABB8F9E)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I "C:\KeilARM\ARM\INC" -I "C:\KeilARM\ARM\INC\Philips" -o "rtc.o" --omf_browse "rtc.crf" --depend "rtc.d")
+I (C:\KeilARM\ARM\INC\Philips\lpc21xx.h)(0x4BB1C2C8)
+I (types.h)(0x6ABB44D2)
+I (defines.h)(0x6ABB8F9E)
+I (LCD.h)(0x6ABB44D2)
+F (.\LM35.c)(0x6ABB6000)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I "C:\KeilARM\ARM\INC" -I "C:\KeilARM\ARM\INC\Philips" -o "lm35.o" --omf_browse "lm35.crf" --depend "lm35.d")
+I (types.h)(0x6ABB44D2)
+I (ADC.h)(0x6ABB44D2)
+I (defines.h)(0x6ABB8F9E)
+I (LCD.h)(0x6ABB44D2)
+I (sensor.h)(0x6ABB44D2)
+I (interrupt.h)(0x6ABB44D2)
+I (C:\KeilARM\ARM\INC\Philips\lpc21xx.h)(0x4BB1C2C8)
+I (pin_define.h)(0x6ABB49F0)
+F (.\LED_Buzzer.c)(0x6ABB44D2)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I "C:\KeilARM\ARM\INC" -I "C:\KeilARM\ARM\INC\Philips" -o "led_buzzer.o" --omf_browse "led_buzzer.crf" --depend "led_buzzer.d")
+I (C:\KeilARM\ARM\INC\Philips\lpc21xx.h)(0x4BB1C2C8)
+I (pin_define.h)(0x6ABB49F0)
+F (.\ADC.c)(0x6ABB44D2)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I "C:\KeilARM\ARM\INC" -I "C:\KeilARM\ARM\INC\Philips" -o "adc.o" --omf_browse "adc.crf" --depend "adc.d")
+I (C:\KeilARM\ARM\INC\Philips\lpc21xx.h)(0x4BB1C2C8)
+I (defines.h)(0x6ABB8F9E)
+I (types.h)(0x6ABB44D2)
+I (timer0.h)(0x6AB04E46)
+I (sensor.h)(0x6ABB44D2)
+F (.\KPM.c)(0x6AB66D64)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I "C:\KeilARM\ARM\INC" -I "C:\KeilARM\ARM\INC\Philips" -o "kpm.o" --omf_browse "kpm.crf" --depend "kpm.d")
+I (C:\KeilARM\ARM\INC\Philips\lpc21xx.h)(0x4BB1C2C8)
+I (types.h)(0x6ABB44D2)
+I (pin_define.h)(0x6ABB49F0)
+I (LCD.h)(0x6ABB44D2)
+F (.\Event_log.c)(0x6ABB44D2)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I "C:\KeilARM\ARM\INC" -I "C:\KeilARM\ARM\INC\Philips" -o "event_log.o" --omf_browse "event_log.crf" --depend "event_log.d")
+I (types.h)(0x6ABB44D2)
+I (defines.h)(0x6ABB8F9E)
+I (LCD.h)(0x6ABB44D2)
+I (RTC.h)(0x6ABB44D2)
+I (timer0.h)(0x6AB04E46)
+I (Event_Log.h)(0x6ABB44D2)
+F (.\main.c)(0x6ABB9193)()
+F (.\security.c)(0x6ABB44D2)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I "C:\KeilARM\ARM\INC" -I "C:\KeilARM\ARM\INC\Philips" -o "security.o" --omf_browse "security.crf" --depend "security.d")
+I (types.h)(0x6ABB44D2)
+I (security.h)(0x6AB51523)
+I (LCD.h)(0x6ABB44D2)
+I (timer0.h)(0x6AB04E46)
+I (kpm.h)(0x6AB04E46)
+I (defines.h)(0x6ABB8F9E)
+F (.\interrupt.c)(0x6ABB4D50)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I "C:\KeilARM\ARM\INC" -I "C:\KeilARM\ARM\INC\Philips" -o "interrupt.o" --omf_browse "interrupt.crf" --depend "interrupt.d")
+I (C:\KeilARM\ARM\INC\Philips\lpc21xx.h)(0x4BB1C2C8)
+I (types.h)(0x6ABB44D2)
+I (KPM.h)(0x6AB04E46)
+I (LCD.h)(0x6ABB44D2)
+I (RTC.h)(0x6ABB44D2)
+I (ADC.h)(0x6ABB44D2)
+I (security.h)(0x6AB51523)
+I (pin_define.h)(0x6ABB49F0)
+I (timer0.h)(0x6AB04E46)
+I (eint0.h)(0x6ABB44D2)
+I (defines.h)(0x6ABB8F9E)

@@ -51,7 +51,7 @@ void LED_Buzzer_check(f32 tempc, u32 gas_logic)
 		if((IOPIN1 &(1<<SW2))==0)
 		{
 			buzzer_muted = 1;
-			//BUZZER OFF
+			temp_val = tempc;
 			Buzzer_OFF();
 		}
 		if(buzzer_muted == 0)

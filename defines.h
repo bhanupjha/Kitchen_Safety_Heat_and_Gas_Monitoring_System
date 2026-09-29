@@ -56,13 +56,6 @@
 #define CPU_LPC2148
 //#define CPU_LPC2129   // for proteus
 
-#define SUN 0
-#define MON 1
-#define TUE 2
-#define WED 3
-#define THU 4
-#define FRI 5
-#define SAT 6
 
 //---------------------------ADC_defines.h-------------------------------------------------------------------
 //clk defines
@@ -95,6 +88,6 @@
 
 
 //-------------------------------------------threshold_value-------------------------------------------------
-#define THRSHOLD_VAL 20
+#define THRSHOLD_VAL 25
 
 #endif

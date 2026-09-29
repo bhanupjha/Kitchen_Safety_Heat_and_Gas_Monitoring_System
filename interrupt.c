@@ -53,9 +53,9 @@ void Edit_Menu(void)
 {
 	u32 choice;
 	WRITE_LCD_CMD(CLEAR_LCD);
-	strLCD("1:RTC 2:Thresh");
+	strLCD("1:RTC  2:Thresh");
 	WRITE_LCD_CMD(GOTO_LINE2_POS0);
-	strLCD("3:Pass 4:Exit");
+	strLCD("3:Pass  4:Exit");
 	tdelay_ms(1000);
 	//choice = ReadNum1();
 	WRITE_LCD_CMD(CLEAR_LCD);
@@ -84,7 +84,7 @@ void edit_rtc_Menu()
 {
 	u32 choice;
 	WRITE_LCD_CMD(CLEAR_LCD);
-	strLCD("1:Time 2: Date");
+	strLCD("1:Time  2:Date");
 	WRITE_LCD_CMD(GOTO_LINE2_POS0);
 	strLCD("3:Exit");
 	tdelay_ms(1000);
@@ -113,9 +113,9 @@ void edit_time_Menu()
 {
 	u32 choice;
 	WRITE_LCD_CMD(CLEAR_LCD);
-	strLCD("1:Hour 2:Min");
+	strLCD("1:Hour  2:Min");
 	WRITE_LCD_CMD(GOTO_LINE2_POS0);
-	strLCD("3:Sec 4:All");
+	strLCD("3:Sec   4:All");
 	tdelay_ms(1000);
 	//choice = ReadNum1();
 	WRITE_LCD_CMD(CLEAR_LCD);
@@ -306,9 +306,9 @@ void edit_date_Menu()
 {
 	u32 choice;
 	WRITE_LCD_CMD(CLEAR_LCD);
-	strLCD("1:DOM 2:Month");
+	strLCD("1:DOM   2:Month");
 	WRITE_LCD_CMD(GOTO_LINE2_POS0);
-	strLCD("3:Year 4:All");
+	strLCD("3:Year   4:All");
 	tdelay_ms(1000);
 	//choice = ReadNum1();
 	WRITE_LCD_CMD(CLEAR_LCD);
