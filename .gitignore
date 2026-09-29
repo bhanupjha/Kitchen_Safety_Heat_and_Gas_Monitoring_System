@@ -11,6 +11,7 @@
 
 # Allow Keil project
 !*.uvproj
+!*.uvopt
 
 #Allow Emulator files
 !*.DSN
