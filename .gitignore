@@ -1,0 +1,29 @@
+# Ignore everything
+*
+
+# Allow folders
+!*/
+
+# Allow source files
+!*.c
+!*.h
+!*.s
+
+# Allow Keil project
+!*.uvproj
+
+#Allow Emulator files
+!*.DSN
+
+# Allow gitignore
+!.gitignore
+
+# Ignore Keil generated files
+*.uvgui.*
+*.build_log.htm
+*.htm
+*.lnp
+*.crf
+*.o
+*.d
+*.bak
