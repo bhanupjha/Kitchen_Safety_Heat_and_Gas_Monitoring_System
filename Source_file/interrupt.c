@@ -3,7 +3,6 @@
 #include "KPM.h"
 #include "LCD.h"
 #include "RTC.h"
-#include "ADC.h"
 #include "security.h"
 #include "pin_define.h"
 #include "timer0.h"

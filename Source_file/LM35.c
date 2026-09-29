@@ -1,5 +1,4 @@
 #include "types.h"
-#include "ADC.h"
 #include "defines.h"
 #include "LCD.h"
 #include "sensor.h"

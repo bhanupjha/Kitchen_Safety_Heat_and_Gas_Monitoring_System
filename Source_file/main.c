@@ -2,7 +2,6 @@
 #include "RTC.h"
 #include "types.h"
 #include "defines.h"
-#include "LM35.h"
 #include "sensor.h"
 #include "pin_define.h"
 #include "Event_Log.h"
