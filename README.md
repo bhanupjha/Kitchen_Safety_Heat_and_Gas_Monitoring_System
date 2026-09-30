@@ -106,3 +106,5 @@ Kitchen_Safety_Heat_and_Gas_Monitoring_System/
 │
 └── README.md
 ```
+# Author
+Bhanu prakash
