@@ -79,6 +79,7 @@ lock condition.
 
 ## Project Structure
 
+```text
 Kitchen_Safety_Heat_and_Gas_Monitoring_System/
 │
 ├── header_file/
@@ -104,3 +105,4 @@ Kitchen_Safety_Heat_and_Gas_Monitoring_System/
 │
 │
 └── README.md
+```
