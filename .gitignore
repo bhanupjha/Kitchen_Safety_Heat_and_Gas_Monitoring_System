@@ -16,6 +16,9 @@
 #Allow Emulator files
 !*.DSN
 
+#Allow img/videos files
+!*.jpg
+
 # Allow gitignore
 !.gitignore
 
