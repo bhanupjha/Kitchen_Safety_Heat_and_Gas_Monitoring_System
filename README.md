@@ -66,7 +66,7 @@ The system continuously samples ambient temperature via an analog LM35 sensor (1
 [▶️ Watch Hardware Demonstration](https://drive.google.com/file/d/13GhJ-6IEEeRoyB-XdcSyzsBExra1H6uY/view?usp=sharing)
 
 ### simulation Demo [Lpc2124]
-[▶️ Watch Simulation Demonstration](https://drive.google.com/file/d/1W3hojFTXaU9dzg9Nud50hOOF0Mu0kRmW/view?usp=sharing)
+[▶️ Watch Simulation Demonstration](https://drive.google.com/file/d/1YwytDOk2-eklzklUDdrZADGpv8nrLNAr/view?usp=sharing)
 
 ## Security / Edit Mode
 
