@@ -53,8 +53,8 @@
 
 #define RTC_CLKSRC (1<<4)
 
-//#define CPU_LPC2148
-#define CPU_LPC2129   // for proteus
+#define CPU_LPC2148
+//#define CPU_LPC2129   // for proteus
 
 
 //---------------------------ADC_defines.h-------------------------------------------------------------------

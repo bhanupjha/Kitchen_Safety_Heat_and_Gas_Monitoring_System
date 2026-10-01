@@ -43,8 +43,8 @@ int main()
 	EventLog_Init();
 	
   // For proteus -> Sets initial time and date on first power-up
-	SET_RTC_Time_Info(10, 55, 1);
-	SET_RTC_Date_Info(29, 9, 2026); 
+//	SET_RTC_Time_Info(10, 55, 1);
+//	SET_RTC_Date_Info(29, 9, 2026); 
 	
 	while(1)
 	{
