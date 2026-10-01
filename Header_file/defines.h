@@ -53,8 +53,8 @@
 
 #define RTC_CLKSRC (1<<4)
 
-#define CPU_LPC2148
-//#define CPU_LPC2129   // for proteus
+//#define CPU_LPC2148
+#define CPU_LPC2129   // for proteus
 
 
 //---------------------------ADC_defines.h-------------------------------------------------------------------
@@ -81,13 +81,13 @@
 #define DONE_BIT 31
 
 //AIN -> GPIO 
-// #define AIN1 0x01000000   // lpc2129 -> proteus
+#define AIN1p 0x01000000  // lpc2129 -> proteus
 #define AIN1 0x01400000
 #define AIN2 0x04400000
 #define AIN3 0x10400000
 
 
 //-------------------------------------------threshold_value-------------------------------------------------
-#define THRSHOLD_VAL 25
+#define THRSHOLD_VAL 35
 
 #endif

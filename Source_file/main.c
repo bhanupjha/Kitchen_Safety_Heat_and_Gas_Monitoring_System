@@ -31,20 +31,20 @@ int main()
 	RTC_Init();
 
   // intialize kpm
-    InitKPM();
+  InitKPM();
 
   // Intialize the ADC
 	Init_ADC();
 
 	// Initialize interrupt
-    eint0_enable();
+  eint0_enable();
 	
 	// Initialize the event log (after the RTC is set)
 	EventLog_Init();
 	
   // For proteus -> Sets initial time and date on first power-up
-//	SET_RTC_Time_Info(00, 55, 1);
-//	SET_RTC_Date_Info(29, 9, 2026); 
+	SET_RTC_Time_Info(10, 55, 1);
+	SET_RTC_Date_Info(29, 9, 2026); 
 	
 	while(1)
 	{
