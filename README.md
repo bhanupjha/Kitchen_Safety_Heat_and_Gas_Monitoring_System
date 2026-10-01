@@ -49,17 +49,24 @@ The system continuously samples ambient temperature via an analog LM35 sensor (1
 
 ## Project Workflow
 
-1. Initialize LPC2148 peripherals.
-2. Initialize LCD, ADC, RTC, keypad and alert devices.
-3. Read temperature from LM35.
-4. Read gas level from MQ2.
-5. Display sensor values and RTC information.
-6. Compare sensor values with configured thresholds.
-7. Generate an alert when an unsafe condition is detected.
-8. Store the latest safety event with RTC timestamp.
-9. Periodically display the latest event.
-10. Allow secure parameter editing through Switch1 and keypad.
-11. Return to normal monitoring mode.
+1. Initialize LPC2148 peripherals and required modules.
+2. Read temperature from LM35.
+3. Read gas level from MQ2.
+4. Display sensor values and RTC information.
+5. Compare sensor values with configured thresholds.
+6. Generate an alert when an unsafe condition is detected.
+7. Store the latest safety event with RTC timestamp.
+8. Periodically display the latest event.
+9. Allow secure parameter editing through Switch1 and keypad.
+10. Return to normal monitoring mode.
+
+## Project Demonstration
+
+### Hardware Demo
+[▶️ Watch Hardware Demonstration](https://drive.google.com/file/d/13GhJ-6IEEeRoyB-XdcSyzsBExra1H6uY/view?usp=sharing)
+
+### simulation Demo [Lpc2124]
+[▶️ Watch Simulation Demonstration](https://drive.google.com/file/d/1W3hojFTXaU9dzg9Nud50hOOF0Mu0kRmW/view?usp=sharing)
 
 ## Security / Edit Mode
 
@@ -82,30 +89,30 @@ lock condition.
 ```text
 Kitchen_Safety_Heat_and_Gas_Monitoring_System/
 │
-├── header_file/
+├── Header_file/
 │ ├── LCD.h
 │ ├── ADC.h
 │ ├── RTC.h
 │ └── ...
 │
-├── source_file/
+├── Source_file/
 │ ├── main.c
 │ ├── LCD.c
 │ ├── ADC.c
 │ ├── RTC.c
 │ └── ...
 │
-├── images/
+├──proteus_simulation/
+|  |── kitchen_safety.DSN
+|
+├── project_img/
 │ ├── block_diagram.png
-│ ├── pin_diagram.png
 │ ├── flowchart.png
-│ └── ...
-│
-├── simulation/
 │
 │
 └── README.md
 ```
 
 ## Author
+
 Bhanu prakash
